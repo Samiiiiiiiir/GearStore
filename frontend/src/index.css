@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-white: #fff;
+  --color-dark: #000;
+
+  --color-light: #9b9b9b;
+  --color-green: #1d8221;
+  --color-red: #e02b2b;
+  --color-blue: #32bde8;
+
+  --breakpoint-xs: 30rem;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

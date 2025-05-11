@@ -1,0 +1,27 @@
+import { HTMLAttributes } from 'react';
+
+import { formatPrice } from '../../helpers';
+import { twMerge } from 'tailwind-merge';
+
+interface PriceTagProps extends HTMLAttributes<HTMLDivElement> {
+  regularPrice: number;
+  discountedPrice: number;
+}
+
+export const PriceTag = ({
+  regularPrice,
+  discountedPrice,
+  className,
+  ...props
+}: PriceTagProps) => {
+  const classes = twMerge('flex gap-3 font-bold', className);
+
+  return (
+    <div className={classes} {...props}>
+      <span className="line-through text-gray-600">
+        {formatPrice(regularPrice)}
+      </span>
+      <span className="text-blue">{formatPrice(discountedPrice)}</span>
+    </div>
+  );
+};
