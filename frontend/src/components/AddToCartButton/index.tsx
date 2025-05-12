@@ -7,8 +7,8 @@ import toast from 'react-hot-toast';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 
 interface AddToCartButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
   item: ProductItem;
+  children?: ReactNode;
 }
 
 export const AddToCartButton = ({
@@ -44,7 +44,12 @@ export const AddToCartButton = ({
   return (
     <>
       {availableItem ? (
-        <div className="flex items-center gap-10 justify-center">
+        <div
+          className={twMerge(
+            'flex items-center gap-10 justify-center',
+            className
+          )}
+        >
           <button
             onClick={handleDecreaseBtn}
             className="rounded-full bg-[#f7f7f7] text-black hover:bg-black hover:text-white cursor-pointer w-10 h-10 flex justify-center items-center text-xl leading-none duration-200"

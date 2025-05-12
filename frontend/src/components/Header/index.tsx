@@ -57,7 +57,7 @@ export const Header = () => {
                           alt={item._base}
                           width={24}
                           height={24}
-                          className="rounded-md object-contain"
+                          className="rounded-md object-contain w-6 h-6"
                         />
                       </div>
                       <span>{item.name}</span>
