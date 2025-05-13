@@ -8,6 +8,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa6';
 
 interface AddToCartButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   item: ProductItem;
+  inCartClassName?: string;
   children?: ReactNode;
 }
 
@@ -15,6 +16,7 @@ export const AddToCartButton = ({
   children,
   className,
   item,
+  inCartClassName,
   ...props
 }: AddToCartButtonProps) => {
   const dispatch = useAppDispatch();
@@ -30,15 +32,29 @@ export const AddToCartButton = ({
   const handleAddBtn = () => {
     dispatch(addToCart(item._id));
 
-    toast.success(`${item.name.slice(0, 12).trim()}... added to cart!`);
+    toast.success(`${item.name.slice(0, 12).trim()}... added to cart!`, {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    });
   };
 
   const handleDecreaseBtn = () => {
-    dispatch(decreaseQuantity(item._id));
-
-    toast.success(
-      `${item.name.slice(0, 12).trim()}... decreased successfully!`
-    );
+    if (availableItem?.quantity && availableItem?.quantity > 1) {
+      dispatch(decreaseQuantity(item._id));
+      toast.success(
+        `${item.name.slice(0, 12).trim()}... decreased successfully!`,
+        {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
+    }
   };
 
   return (
@@ -47,12 +63,13 @@ export const AddToCartButton = ({
         <div
           className={twMerge(
             'flex items-center gap-10 justify-center',
-            className
+            inCartClassName
           )}
         >
           <button
+            disabled={availableItem.quantity <= 1}
             onClick={handleDecreaseBtn}
-            className="rounded-full bg-[#f7f7f7] text-black hover:bg-black hover:text-white cursor-pointer w-10 h-10 flex justify-center items-center text-xl leading-none duration-200"
+            className="rounded-full bg-[#f4f4f4] text-black hover:bg-black hover:text-white disabled:opacity-20 cursor-pointer disabled:cursor-default w-10 h-10 flex justify-center items-center text-xl leading-none duration-200"
           >
             <FaMinus size={16} />
           </button>
@@ -61,7 +78,7 @@ export const AddToCartButton = ({
           </span>
           <button
             onClick={handleAddBtn}
-            className="rounded-full bg-[#f7f7f7] text-black hover:bg-black hover:text-white cursor-pointer w-10 h-10 flex justify-center items-center text-xl leading-none duration-200"
+            className="rounded-full bg-[#f4f4f4] text-black hover:bg-black hover:text-white cursor-pointer w-10 h-10 flex justify-center items-center text-xl leading-none duration-200"
           >
             <FaPlus size={16} />
           </button>

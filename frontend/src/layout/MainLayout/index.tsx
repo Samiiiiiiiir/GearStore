@@ -15,7 +15,7 @@ export const MainLayout = () => {
         </Container>
       </main>
       <Footer />
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="bottom-right" reverseOrder={false} />
     </div>
   );
 };

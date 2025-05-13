@@ -1,10 +1,13 @@
 import { Link } from 'react-router';
-import { useAppSelector } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../store';
 import { ProductItem } from '../../types';
 import { formatPrice } from '../../helpers';
 import { AddToCartButton } from '../AddToCartButton';
 import { IoMdClose, IoMdCloseCircle } from 'react-icons/io';
 import { FaRegCheckCircle } from 'react-icons/fa';
+import { PriceTag } from '../PriceTag';
+import { removeFromCart } from '../../store/slices/cartSlice';
+import toast from 'react-hot-toast';
 
 interface CartProductProps {
   item: ProductItem;
@@ -12,29 +15,42 @@ interface CartProductProps {
 
 export const CartProduct = ({ item }: CartProductProps) => {
   const cart = useAppSelector((state) => state.cartSlice.cart);
+  const dispatch = useAppDispatch();
 
   const quantity = cart.find((i) => i.id == item._id)?.quantity;
 
   const handleDeleteBtn = () => {
-    console.log('delete');
+    if (confirm('Are you sure?')) {
+      dispatch(removeFromCart(item._id));
+      toast.success(`${item.name.slice(0, 20).trim()} deleted successfully!`, {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
+    }
   };
 
   return (
     <>
       {quantity ? (
-        <div className="py-8 flex gap-8 border-y-gray-300 border-t-1 max-w-[900px]">
+        <div className="py-8 flex justify-between gap-8 border-y-gray-300 border-b-1">
           <Link to={`/products/${item._id}`} className="shrink-0">
             <img
               src={item.images[0]}
               alt=""
-              className="h-24 w-24 sm:h-48 sm:w-48 rounded-md object-scale-down border border-blue/30 hover:border-blue duration-200 p-2"
+              className="h-21 w-21 sm:h-42 sm:w-42 rounded-md object-scale-down border border-blue/30 hover:border-blue duration-200 p-2"
             />
           </Link>
           <div className="flex flex-col gap-3 justify-between">
             <div>
-              <h3 className="text-lg font-semibold mb-0.5">
+              <Link
+                to={`/products/${item._id}`}
+                className="block text-lg font-semibold mb-1 text-gray-800 hover:text-black duration-200"
+              >
                 {`${item.name.slice(0, 80)}...`}
-              </h3>
+              </Link>
               <p className="text-sm">
                 Brand: <span className="font-semibold">{item.brand}</span>
               </p>
@@ -43,15 +59,17 @@ export const CartProduct = ({ item }: CartProductProps) => {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-xl font-semibold">
-                {formatPrice(item.discountedPrice)}
-              </span>
-              <AddToCartButton item={item} className="gap-5">
+              <PriceTag
+                regularPrice={item.regularPrice * quantity}
+                discountedPrice={item.discountedPrice * quantity}
+                className="text-lg"
+              />
+              <AddToCartButton item={item} inCartClassName="gap-6">
                 Add to cart
               </AddToCartButton>
             </div>
             <div>
-              <div className="flex gap-2 items-center text-gray-500 font-medium">
+              <div className="flex gap-2 items-center text-gray-500 font-medium mb-0.5">
                 {item.isStock ? (
                   <>
                     <FaRegCheckCircle color="green" size={22} />
@@ -67,7 +85,9 @@ export const CartProduct = ({ item }: CartProductProps) => {
               <p>
                 You are saving{' '}
                 <span className="text-green font-bold">
-                  {formatPrice(item.regularPrice - item.discountedPrice)}
+                  {formatPrice(
+                    (item.regularPrice - item.discountedPrice) * quantity
+                  )}
                 </span>{' '}
                 upon purchase
               </p>
@@ -75,7 +95,7 @@ export const CartProduct = ({ item }: CartProductProps) => {
           </div>
           <button
             onClick={handleDeleteBtn}
-            className="self-start cursor-pointer text-gray-600 hover:text-gray-900 duration-200"
+            className="self-start cursor-pointer text-gray-800 hover:text-red-600 duration-300"
           >
             <IoMdClose size={26} />
           </button>
