@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { publicApiSlice } from './../api/publicApiSlice';
 
 import cartSlice from './slices/cartSlice';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import wishlistSlice from './slices/wishlistSlice';
 
 export const store = configureStore({
   reducer: {
     [publicApiSlice.reducerPath]: publicApiSlice.reducer,
     cartSlice,
+    wishlistSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(publicApiSlice.middleware),

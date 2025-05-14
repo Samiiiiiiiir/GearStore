@@ -9,6 +9,7 @@ export const UserActions = () => {
   const [cartItems, setCartItems] = useState(0);
 
   const cart = useAppSelector((state) => state.cartSlice.cart);
+  const list = useAppSelector((state) => state.wishlistSlice.list);
 
   useEffect(() => {
     setCartItems(calculateCartItems(cart));
@@ -23,7 +24,7 @@ export const UserActions = () => {
         <div className="relative">
           <IoHeartOutline size={32} className="hover:text-blue duration-200" />
           <div className="absolute top-[-18%] right-[-25%] inline-flex items-center justify-center bg-red text-white text-sm rounded-full w-[22px] h-[22px]">
-            0
+            {list.length}
           </div>
         </div>
       </Link>
