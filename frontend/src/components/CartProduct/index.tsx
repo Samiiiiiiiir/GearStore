@@ -1,21 +1,25 @@
-import { Link } from 'react-router';
-import { useAppDispatch, useAppSelector } from '../../store';
-import { ProductItem } from '../../types';
-import { formatPrice } from '../../helpers';
-import { AddToCartButton } from '../AddToCartButton';
-import { IoMdClose, IoMdCloseCircle } from 'react-icons/io';
-import { FaRegCheckCircle } from 'react-icons/fa';
-import { PriceTag } from '../PriceTag';
-import { removeFromCart } from '../../store/slices/cartSlice';
 import toast from 'react-hot-toast';
+import { FaRegCheckCircle } from 'react-icons/fa';
+import { IoMdClose, IoMdCloseCircle } from 'react-icons/io';
+import { Link } from 'react-router';
+
+import { formatPrice } from '@helpers';
+import { ROUTES } from '@router/AppRouter';
+import { useAppDispatch, useAppSelector } from '@store';
+import { removeFromCart } from '@store/slices/cartSlice';
+import { ProductItem } from '@types';
+
+import { AddToCartButton } from './../AddToCartButton';
+import { PriceTag } from './../PriceTag';
 
 interface CartProductProps {
   item: ProductItem;
 }
 
 export const CartProduct = ({ item }: CartProductProps) => {
-  const cart = useAppSelector((state) => state.cartSlice.cart);
   const dispatch = useAppDispatch();
+
+  const { cart } = useAppSelector((state) => state.cartSlice);
 
   const quantity = cart.find((i) => i.id == item._id)?.quantity;
 
@@ -35,22 +39,30 @@ export const CartProduct = ({ item }: CartProductProps) => {
   return (
     <>
       {quantity ? (
-        <div className="py-8 flex justify-between gap-8 border-y-gray-300 border-b-1">
-          <Link to={`/products/${item._id}`} className="shrink-0">
+        <div className="py-8 flex gap-8 border-y-gray-300 border-b-1 max-w-full">
+          <Link to={`${ROUTES.products}/${item._id}`} className="shrink-0">
             <img
               src={item.images[0]}
               alt=""
               className="h-21 w-21 sm:h-42 sm:w-42 rounded-md object-scale-down border border-blue/30 hover:border-blue duration-200 p-2"
             />
           </Link>
-          <div className="flex flex-col gap-3 justify-between">
+          <div className="flex flex-col gap-3 justify-between grow">
             <div>
-              <Link
-                to={`/products/${item._id}`}
-                className="block text-lg font-semibold mb-1 text-gray-800 hover:text-black duration-200"
-              >
-                {`${item.name.slice(0, 80)}...`}
-              </Link>
+              <div className="flex justify-between gap-8 items-start">
+                <Link
+                  to={`${ROUTES.products}/${item._id}`}
+                  className="block md:text-lg font-semibold mb-1 text-gray-800 hover:text-black duration-200"
+                >
+                  <span className="line-clamp-2">{item.name}</span>
+                </Link>
+                <button
+                  onClick={handleDeleteBtn}
+                  className="cursor-pointer text-gray-800 hover:text-red-600 duration-300"
+                >
+                  <IoMdClose size={26} />
+                </button>
+              </div>
               <p className="text-sm">
                 Brand: <span className="font-semibold">{item.brand}</span>
               </p>
@@ -58,13 +70,13 @@ export const CartProduct = ({ item }: CartProductProps) => {
                 Category: <span className="font-semibold">{item.category}</span>
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <PriceTag
                 regularPrice={item.regularPrice * quantity}
                 discountedPrice={item.discountedPrice * quantity}
                 className="text-lg"
               />
-              <AddToCartButton item={item} inCartClassName="gap-6">
+              <AddToCartButton item={item} inCartClassName="gap-6 self-start">
                 Add to cart
               </AddToCartButton>
             </div>
@@ -82,23 +94,17 @@ export const CartProduct = ({ item }: CartProductProps) => {
                   </>
                 )}
               </div>
-              <p>
+              <p className="text-sm md:text-base">
                 You are saving{' '}
                 <span className="text-green font-bold">
                   {formatPrice(
-                    (item.regularPrice - item.discountedPrice) * quantity
+                    (item.regularPrice - item.discountedPrice) * quantity,
                   )}
                 </span>{' '}
                 upon purchase
               </p>
             </div>
           </div>
-          <button
-            onClick={handleDeleteBtn}
-            className="self-start cursor-pointer text-gray-800 hover:text-red-600 duration-300"
-          >
-            <IoMdClose size={26} />
-          </button>
         </div>
       ) : null}
     </>

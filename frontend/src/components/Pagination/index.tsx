@@ -1,7 +1,9 @@
-import ReactPaginate from 'react-paginate';
-import { useGetProductsQuery } from '../../api/publicApiSlice';
 import { useRef, useState } from 'react';
-import { ProductCard } from '../ProductCard';
+import ReactPaginate from 'react-paginate';
+
+import { useGetProductsQuery } from '@api/publicApiSlice';
+
+import { ProductCard } from './../ProductCard';
 
 const itemsPerPage = 12;
 

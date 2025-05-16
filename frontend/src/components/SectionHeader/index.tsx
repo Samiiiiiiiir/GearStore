@@ -1,5 +1,6 @@
-import { Title } from '../Title';
 import { Link } from 'react-router';
+
+import { Title } from './../Title';
 
 interface SectionHeaderProps {
   title: string;

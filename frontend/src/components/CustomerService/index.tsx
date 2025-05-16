@@ -1,8 +1,10 @@
 import React from 'react';
 
-import Warranty from './../../assets/icons/warranty.svg?react';
-import Shipping from './../../assets/icons/shipping.svg?react';
-import Exchange from './../../assets/icons/exchange.svg?react';
+import Exchange from '@assets/icons/exchange.svg?react';
+import Shipping from '@assets/icons/shipping.svg?react';
+import Warranty from '@assets/icons/warranty.svg?react';
+
+import { Title } from './../Title';
 
 interface ICustomerServiceItem {
   title: string;
@@ -31,9 +33,9 @@ const customerServiceItems: ICustomerServiceItem[] = [
 export const CustomerService = () => {
   return (
     <section className="my-6 lg:my-8 p-6 lg:p-16 grid gap-14 rounded-xl bg-[#f6f6f6]">
-      <h2 className="text-2xl lg:text-3xl font-bold text-center">
+      <Title className="text-center">
         We built our business on customer service
-      </h2>
+      </Title>
       <ul className="grid lg:grid-cols-3 gap-6">
         {customerServiceItems.map(({ title, desc, Icon }) => (
           <li

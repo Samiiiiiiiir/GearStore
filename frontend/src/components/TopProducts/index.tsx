@@ -1,6 +1,8 @@
-import { Pagination } from '../Pagination';
-import { Section } from '../Section';
-import { SectionHeader } from '../SectionHeader';
+import { ROUTES } from '@router/AppRouter';
+
+import { Pagination } from './../Pagination';
+import { Section } from './../Section';
+import { SectionHeader } from './../SectionHeader';
 
 export const TopProducts = () => {
   return (
@@ -8,7 +10,7 @@ export const TopProducts = () => {
       <SectionHeader
         title="Top Sells Products"
         linkText="View All Products"
-        linkPath="/products"
+        linkPath={ROUTES.products}
       />
 
       <Pagination />

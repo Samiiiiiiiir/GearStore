@@ -1,8 +1,11 @@
-import { Link } from 'react-router';
-import { useGetCategoriesQuery } from '../../api/publicApiSlice';
-import { SectionHeader } from '../SectionHeader';
 import ContentLoader from 'react-content-loader';
-import { Section } from '../Section';
+import { Link } from 'react-router';
+
+import { useGetCategoriesQuery } from '@api/publicApiSlice';
+import { ROUTES } from '@router/AppRouter';
+
+import { Section } from './../Section';
+import { SectionHeader } from './../SectionHeader';
 
 export const PopularCategories = () => {
   const { data, isSuccess, isFetching, isLoading } = useGetCategoriesQuery();
@@ -12,7 +15,7 @@ export const PopularCategories = () => {
       <SectionHeader
         title="Popular categories"
         linkText="View All Categories"
-        linkPath="/products"
+        linkPath={ROUTES.products}
       />
       <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 pt-8">
         {(isLoading || isFetching) &&
@@ -34,7 +37,7 @@ export const PopularCategories = () => {
               key={item._id}
               className="rounded-md overflow-hidden relative group"
             >
-              <Link to={`/products?active=${item._base}`}>
+              <Link to={`${ROUTES.products}?active=${item._base}`}>
                 <img
                   src={item.image}
                   alt={item.name}

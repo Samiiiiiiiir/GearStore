@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
-import { useGetProductsQuery } from '../../api/publicApiSlice';
-import { ProductCard } from '../ProductCard';
-import { ProductItem } from '../../types';
+
+import { useGetProductsQuery } from '@api/publicApiSlice';
+import { ProductItem } from '@types';
+
+import { ProductCard } from './../ProductCard';
 
 export const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -14,7 +16,7 @@ export const SearchBar = () => {
   useEffect(() => {
     if (isSuccess) {
       const filtered = data.items.filter((item) =>
-        item.name.toLowerCase().includes(searchValue.trim().toLowerCase())
+        item.name.toLowerCase().includes(searchValue.trim().toLowerCase()),
       );
 
       setFilteredData(filtered);
@@ -45,11 +47,13 @@ export const SearchBar = () => {
       {searchValue && (
         <div className="hidden md:block absolute bg-white left-0 h-[60vh] overflow-y-scroll no-scrollbar z-50 w-full top-20 shadow-md shadow-gray-500 p-3">
           {filteredData.length > 0 ? (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            <ul className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
               {filteredData.map((item) => (
-                <ProductCard item={item} onClick={() => setSearchValue('')} />
+                <li key={item._id}>
+                  <ProductCard item={item} onClick={() => setSearchValue('')} />
+                </li>
               ))}
-            </div>
+            </ul>
           ) : (
             <div className="text-xl py-8 flex items-center h-full justify-center px-4 text-center">
               <p>

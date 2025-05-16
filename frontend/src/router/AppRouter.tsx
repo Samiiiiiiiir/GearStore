@@ -1,33 +1,45 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
-import { MainLayout } from '../layout/MainLayout';
+import { MainLayout } from '@layout/MainLayout';
+import { Cancel } from '@pages/Cancel';
+import { Cart } from '@pages/Cart';
+import { Home } from '@pages/Home';
+import { NotFound } from '@pages/NotFound';
+import { Orders } from '@pages/Orders';
+import { ProductItem } from '@pages/ProductItem';
+import { Products } from '@pages/Products';
+import { Profile } from '@pages/Profile';
+import { Success } from '@pages/Success';
+import { Wishlist } from '@pages/Wishlist';
 
-import { Products } from '../pages/Products';
-import { NotFound } from '../pages/NotFound';
-import { Profile } from '../pages/Profile';
-import { Wishlist } from '../pages/Wishlist';
-import { ProductItem } from '../pages/ProductItem';
-import { Cart } from '../pages/Cart';
-import { Orders } from '../pages/Orders';
-import { Success } from '../pages/Success';
-import { Cancel } from '../pages/Cancel';
-import { Home } from '../pages/Home';
+export const ROUTES = {
+  main: '/',
+  products: '/products',
+  productItem: '/products/:id',
+  profile: '/profile',
+  cart: '/cart',
+  wishlist: '/wishlist',
+  orders: '/orders',
+  success: '/success',
+  cancel: '/cancel',
+  notFound: '*',
+};
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: '/products', element: <Products /> },
-      { path: '/products/:id', element: <ProductItem /> },
-      { path: '/profile', element: <Profile /> },
-      { path: '/cart', element: <Cart /> },
-      { path: '/wishlist', element: <Wishlist /> },
-      { path: '/orders', element: <Orders /> },
-      { path: '/success', element: <Success /> },
-      { path: '/cancel', element: <Cancel /> },
-      { path: '*', element: <NotFound /> },
+      { path: ROUTES.main, element: <Home /> },
+      { path: ROUTES.products, element: <Products /> },
+      { path: ROUTES.productItem, element: <ProductItem /> },
+      { path: ROUTES.profile, element: <Profile /> },
+      { path: ROUTES.cart, element: <Cart /> },
+      { path: ROUTES.wishlist, element: <Wishlist /> },
+      { path: ROUTES.orders, element: <Orders /> },
+      { path: ROUTES.success, element: <Success /> },
+      { path: ROUTES.cancel, element: <Cancel /> },
+      { path: ROUTES.notFound, element: <NotFound /> },
     ],
   },
 ]);

@@ -1,10 +1,10 @@
-import { Brands } from '../../components/Brands';
-import { DiscountBanner } from '../../components/DiscountBanner';
-import { Highlights } from '../../components/Highlights';
-import { HomeBanner } from '../../components/HomeBanner';
-import { PopularCategories } from '../../components/PopularCategories';
-import { TopProducts } from '../../components/TopProducts';
-import { CustomerService } from './../../components/CustomerService';
+import { Brands } from '@components/Brands';
+import { CustomerService } from '@components/CustomerService';
+import { DiscountBanner } from '@components/DiscountBanner';
+import { Highlights } from '@components/Highlights';
+import { HomeBanner } from '@components/HomeBanner';
+import { PopularCategories } from '@components/PopularCategories';
+import { TopProducts } from '@components/TopProducts';
 
 export const Home = () => {
   return (

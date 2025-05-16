@@ -8,7 +8,7 @@ interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
 export const Title = ({ children, className, ...props }: TitleProps) => {
   const classes = twMerge(
     'font-bold text-2xl md:text-3xl lg:text-4xl',
-    className
+    className,
   );
 
   return (

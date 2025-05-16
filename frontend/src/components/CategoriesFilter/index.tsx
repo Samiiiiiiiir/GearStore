@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
-import { useGetCategoriesQuery } from '../../api/publicApiSlice';
+
+import { useGetCategoriesQuery } from '@api/publicApiSlice';
 
 interface CategoriesFilterProps {
   active?: string | (string | null)[] | null;
@@ -10,9 +11,9 @@ export const CategoriesFilter = ({ active }: CategoriesFilterProps) => {
 
   return (
     <div className="hidden md:inline-flex flex-col gap-1 p-2">
-      <h2 className="text-lg mb-1 font-semibold uppercase whitespace-nowrap">
+      <h3 className="text-lg mb-1 font-semibold uppercase whitespace-nowrap">
         select categories
-      </h2>
+      </h3>
       {isSuccess &&
         data.map((item) => (
           <Link

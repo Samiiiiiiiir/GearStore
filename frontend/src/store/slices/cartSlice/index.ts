@@ -1,6 +1,6 @@
+import { publicApiSlice } from '@api/publicApiSlice';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CartItem } from '../../../types';
-import { publicApiSlice } from '../../../api/publicApiSlice';
+import { CartItem } from '@types';
 
 interface InitialStateType {
   cart: CartItem[];
@@ -59,7 +59,7 @@ const cartSlice = createSlice({
 
         state.regularPrice = regularPrice;
         state.discountedPrice = discountedPrice;
-      }
+      },
     );
   },
 });

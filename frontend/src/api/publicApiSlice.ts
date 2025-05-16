@@ -1,13 +1,13 @@
+import axios, { AxiosError } from 'axios';
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
+  CartItem,
   CategoryItem,
-  ProductsResponse,
   HighlightItem,
   ProductItem,
-  CartItem,
-} from '../types';
-
-import axios, { AxiosError } from 'axios';
+  ProductsResponse,
+} from '@types';
 
 const baseUrl: string = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
@@ -48,7 +48,7 @@ export const publicApiSlice = createApi({
       queryFn: async (items) => {
         try {
           const response = await Promise.all(
-            items.map((item) => axios.get(`${baseUrl}/products/${item.id}`))
+            items.map((item) => axios.get(`${baseUrl}/products/${item.id}`)),
           );
 
           const data: ProductItem[] = response.map((item) => item.data);

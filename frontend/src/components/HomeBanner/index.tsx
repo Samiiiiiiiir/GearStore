@@ -1,7 +1,10 @@
-import { homeBanner } from '../../assets';
-import { LinkButton } from '../LinkButton';
 import { FaArrowLeft } from 'react-icons/fa';
-import { Section } from '../Section';
+
+import { homeBanner } from '@assets/index';
+import { ROUTES } from '@router/AppRouter';
+
+import { LinkButton } from './../LinkButton';
+import { Section } from './../Section';
 
 export const HomeBanner = () => {
   return (
@@ -20,7 +23,7 @@ export const HomeBanner = () => {
           The new tech gift you are wishing for right here
         </p>
         <LinkButton
-          to="/products"
+          to={ROUTES.products}
           className="py-2.5 px-4 xl:py-3.5 xl:px-6 text-sm sm:text-base justify-self-start bg-white text-black hover:bg-black hover:text-white duration-300"
         >
           <FaArrowLeft />

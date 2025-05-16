@@ -1,13 +1,13 @@
-import { Container } from './../Container';
-
-import { SearchBar } from '../SearchBar';
-
-import { Link } from 'react-router';
 import { FaChevronDown } from 'react-icons/fa';
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Link } from 'react-router';
 
-import { useGetCategoriesQuery } from '../../api/publicApiSlice.ts';
-import { UserActions } from '../UserActions/index.tsx';
+import { useGetCategoriesQuery } from '@api/publicApiSlice.ts';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { ROUTES } from '@router/AppRouter.tsx';
+
+import { Container } from './../Container';
+import { SearchBar } from './../SearchBar';
+import { UserActions } from './../UserActions';
 import { HeaderNavigation } from './HeaderNavigation.tsx';
 
 export const Header = () => {
@@ -17,7 +17,10 @@ export const Header = () => {
     <header className="sticky top-0 z-49 bg-white">
       <Container className="items-center justify-between py-0 flex h-20 gap-4 sm:gap-12">
         <h1>
-          <Link to="/" className="text-3xl font-bold whitespace-nowrap">
+          <Link
+            to={ROUTES.main}
+            className="text-3xl font-bold whitespace-nowrap"
+          >
             Gear-shop
           </Link>
         </h1>
@@ -48,7 +51,7 @@ export const Header = () => {
                 categoriesData.map((item) => (
                   <MenuItem key={item._id}>
                     <Link
-                      to={`/products?active=${item._base}`}
+                      to={`${ROUTES.products}?active=${item._base}`}
                       className="data-focus:text-blue data-focus:bg-white/20 duration-200 flex items-center gap-2 py-1 px-3.5 rounded-md"
                     >
                       <div className="bg-white p-1 rounded-full flex items-center justify-center">

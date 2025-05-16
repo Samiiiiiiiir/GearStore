@@ -9,7 +9,7 @@ interface ContainerProps {
 export const Container = ({ children, className }: ContainerProps) => {
   const classes = twMerge(
     'mx-auto max-w-screen-xl w-full px-4 xl:px-1 h-full',
-    className
+    className,
   );
 
   return <div className={classes}>{children}</div>;

@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router';
-import { useGetProductsByCategoryQuery } from '../../api/publicApiSlice';
-import { CategoriesFilter } from '../../components/CategoriesFilter';
-import { PageLoader } from '../../components/PageLoader';
-import { ProductCard } from '../../components/ProductCard';
-import { Title } from '../../components/Title';
 import queryString from 'query-string';
+import { useLocation } from 'react-router';
+
+import { useGetProductsByCategoryQuery } from '@api/publicApiSlice';
+import { CategoriesFilter } from '@components/CategoriesFilter';
+import { PageLoader } from '@components/PageLoader';
+import { ProductCard } from '@components/ProductCard';
+import { Title } from '@components/Title';
 
 export const Products = () => {
   const { search } = useLocation();

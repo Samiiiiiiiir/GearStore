@@ -1,13 +1,13 @@
-import { Section } from '../Section';
-import { Title } from '../Title';
-
 import {
-  brandOne,
-  brandTwo,
-  brandThree,
-  brandFour,
   brandFive,
-} from '../../assets';
+  brandFour,
+  brandOne,
+  brandThree,
+  brandTwo,
+} from '@assets/index';
+
+import { Section } from './../Section';
+import { Title } from './../Title';
 
 const brandsData = [
   { source: brandOne, title: 'Xiaomi' },

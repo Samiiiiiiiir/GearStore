@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { useGetOneProductQuery } from '../../api/publicApiSlice';
-import { PageLoader } from '../../components/PageLoader';
-import { Title } from '../../components/Title';
-import { PriceTag } from '../../components/PriceTag';
+
+import { useGetOneProductQuery } from '@api/publicApiSlice';
+import { AddToCartButton } from '@components/AddToCartButton';
+import { PageLoader } from '@components/PageLoader';
+import { PriceTag } from '@components/PriceTag';
+import { Title } from '@components/Title';
+import { formatPrice } from '@helpers';
 import { Rating } from '@smastrom/react-rating';
-import { formatPrice } from '../../helpers';
-import { IoMdClose } from 'react-icons/io';
-import { AddToCartButton } from '../../components/AddToCartButton';
 
 export const ProductItem = () => {
   const [activeImage, setActiveImage] = useState(0);
-  const [activeItemColor, setActiveItemColor] = useState('');
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -81,49 +80,9 @@ export const ProductItem = () => {
               </span>{' '}
               upon purchase!
             </p>
-            {activeItemColor && (
-              <p className="text-lg">
-                Color:{' '}
-                <span
-                  className={`font-bold capitalize`}
-                  style={{
-                    color: activeItemColor,
-                    backgroundColor: activeItemColor == 'white' ? 'black' : '',
-                    padding: '2px 4px',
-                  }}
-                >
-                  {activeItemColor}
-                </span>
-              </p>
-            )}
-            <div className="flex gap-6 items-center flex-wrap w-full">
-              <div className="inline-flex gap-3">
-                {data.colors.map((color) => (
-                  <div
-                    key={color}
-                    className={`shrink-0 w-7 xl:w-10 h-7 xl:h-10 rounded-full shadow-lg cursor-pointer hover:scale-105 outline-1 outline-gray-400 duration-200 ${
-                      activeItemColor == color ? 'outline-offset-4 ' : ''
-                    }`}
-                    style={{ backgroundColor: color }}
-                    onClick={() => setActiveItemColor(color)}
-                  />
-                ))}
-              </div>
-              {activeItemColor && (
-                <button
-                  className="shrink-0 inline-flex items-center gap-2 font-bold xl:text-lg  text-red hover:text-white bg-white hover:bg-red duration-200 cursor-pointer border-1 border-red p-1 rounded-lg"
-                  type="button"
-                  onClick={() => setActiveItemColor('')}
-                >
-                  <IoMdClose size={24} />
-                </button>
-              )}
-            </div>
-
             <AddToCartButton
               item={data}
-              className="uppercase text-white bg-black/80 hover:bg-black"
-              disabled={Boolean(!activeItemColor)}
+              className="uppercase text-white bg-black/80 hover:bg-black w-[80%] self-center"
             >
               buy now
             </AddToCartButton>

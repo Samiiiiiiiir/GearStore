@@ -1,7 +1,8 @@
-import { useLocation } from 'react-router';
 import { FaArrowLeft } from 'react-icons/fa';
+import { useLocation } from 'react-router';
 
-import { LinkButton } from './../../components/LinkButton';
+import { LinkButton } from '@components/LinkButton';
+import { ROUTES } from '@router/AppRouter';
 
 export const NotFound = () => {
   const { pathname } = useLocation();
@@ -16,7 +17,7 @@ export const NotFound = () => {
       <div className="text-2xl lg:text-3xl">
         the address is entered incorrectly or the page no longer exists
       </div>
-      <LinkButton className="justify-self-start" to="/products">
+      <LinkButton className="justify-self-start" to={ROUTES.products}>
         <FaArrowLeft />
         <span>Start shopping</span>
       </LinkButton>

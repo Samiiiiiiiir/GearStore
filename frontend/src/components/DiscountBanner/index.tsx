@@ -1,9 +1,12 @@
-import { Section } from '../Section';
 import { Link } from 'react-router';
 
+import { ROUTES } from '@router/AppRouter';
+
 import { discountImgOne, discountImgTwo } from './../../assets';
-import { SectionHeader } from '../SectionHeader';
-import { LinkButton } from '../LinkButton';
+import { LinkButton } from './../LinkButton';
+import { Section } from './../Section';
+import { SectionHeader } from './../SectionHeader';
+import { Title } from './../Title';
 
 const searchItems = [
   { title: 'Smart Watches', link: 'smartWatches' },
@@ -18,7 +21,7 @@ export const DiscountBanner = () => {
   return (
     <Section className="grid gap-8">
       <SectionHeader
-        linkPath="/products"
+        linkPath={ROUTES.products}
         linkText="View All"
         title="Popular Search"
       />
@@ -26,7 +29,7 @@ export const DiscountBanner = () => {
         {searchItems.map(({ link, title }) => (
           <li key={title}>
             <LinkButton
-              to={`/products?active=${link}`}
+              to={`${ROUTES.products}?active=${link}`}
               className="bg-transparent text-black hover:text-white border-gray-300 border-1"
             >
               {title}
@@ -41,9 +44,9 @@ export const DiscountBanner = () => {
           className="hidden md:block absolute top-0 -z-1"
         />
         <div className="flex justify-center items-center gap-1 lg:gap-3  mb-2 pt-8">
-          <h2 className="text-xl lg:text-4xl font-bold">Sony Headphone</h2>
+          <Title>Sony Headphone</Title>
           <Link
-            to="/products"
+            to={ROUTES.products}
             className="py-1 px-3 lg:py-3 lg:px-5 rounded-full font-semibold text-lg lg:text-2xl border-1 border-red text-red hover:text-white hover:bg-red duration-200 relative z-2"
           >
             Discount 20%

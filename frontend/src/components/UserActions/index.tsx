@@ -1,15 +1,17 @@
-import { IoBagOutline, IoHeartOutline } from 'react-icons/io5';
-import { FiUser } from 'react-icons/fi';
-import { Link } from 'react-router';
 import { useEffect, useState } from 'react';
-import { useAppSelector } from '../../store';
-import { calculateCartItems } from '../../helpers';
+import { FiUser } from 'react-icons/fi';
+import { IoBagOutline, IoHeartOutline } from 'react-icons/io5';
+import { Link } from 'react-router';
+
+import { calculateCartItems } from '@helpers';
+import { ROUTES } from '@router/AppRouter';
+import { useAppSelector } from '@store';
 
 export const UserActions = () => {
   const [cartItems, setCartItems] = useState(0);
 
-  const cart = useAppSelector((state) => state.cartSlice.cart);
-  const list = useAppSelector((state) => state.wishlistSlice.list);
+  const { cart } = useAppSelector((state) => state.cartSlice);
+  const { list } = useAppSelector((state) => state.wishlistSlice);
 
   useEffect(() => {
     setCartItems(calculateCartItems(cart));
@@ -17,10 +19,10 @@ export const UserActions = () => {
 
   return (
     <div className="flex items-center gap-3 sm:gap-4">
-      <Link to="/profile">
+      <Link to={ROUTES.profile}>
         <FiUser size={32} className="hover:text-blue duration-200" />
       </Link>
-      <Link to="/wishlist">
+      <Link to={ROUTES.wishlist}>
         <div className="relative">
           <IoHeartOutline size={32} className="hover:text-blue duration-200" />
           <div className="absolute top-[-18%] right-[-25%] inline-flex items-center justify-center bg-red text-white text-sm rounded-full w-[22px] h-[22px]">
@@ -28,7 +30,7 @@ export const UserActions = () => {
           </div>
         </div>
       </Link>
-      <Link to="/cart">
+      <Link to={ROUTES.cart}>
         <div className="relative">
           <IoBagOutline size={32} className="hover:text-blue duration-200" />
           <div className="absolute top-[-18%] right-[-25%] inline-flex items-center justify-center bg-red text-white text-sm rounded-full w-[22px] h-[22px]">

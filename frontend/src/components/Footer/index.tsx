@@ -1,6 +1,6 @@
-import { Container } from './../../components/Container';
+import { payment } from '@assets/index';
 
-import { payment } from '../../assets';
+import { Container } from './../Container';
 
 export const Footer = () => {
   return (

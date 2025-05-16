@@ -1,8 +1,9 @@
-import { Header } from './../../components/Header';
-import { Container } from './../../components/Container';
-import { Footer } from './../../components/Footer';
-import { Outlet, ScrollRestoration } from 'react-router';
 import { Toaster } from 'react-hot-toast';
+import { Outlet, ScrollRestoration } from 'react-router';
+
+import { Container } from '@components/Container';
+import { Footer } from '@components/Footer';
+import { Header } from '@components/Header';
 
 export const MainLayout = () => {
   return (

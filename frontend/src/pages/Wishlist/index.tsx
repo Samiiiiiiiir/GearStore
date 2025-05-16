@@ -1,8 +1,10 @@
 import { FaArrowLeft } from 'react-icons/fa6';
-import { LinkButton } from '../../components/LinkButton';
-import { Title } from '../../components/Title';
-import { WishlistProduct } from '../../components/WishlistProduct';
-import { useAppSelector } from '../../store';
+
+import { LinkButton } from '@components/LinkButton';
+import { Title } from '@components/Title';
+import { WishlistProduct } from '@components/WishlistProduct';
+import { ROUTES } from '@router/AppRouter';
+import { useAppSelector } from '@store';
 
 export const Wishlist = () => {
   const { list } = useAppSelector((state) => state.wishlistSlice);
@@ -12,18 +14,22 @@ export const Wishlist = () => {
       {list.length > 0 ? (
         <>
           <Title className="mb-1">Wishlist</Title>
-          {list.map((item) => (
-            <WishlistProduct key={item._id} item={item} />
-          ))}
+          <ul>
+            {list.map((item) => (
+              <li key={item._id}>
+                <WishlistProduct item={item} />
+              </li>
+            ))}
+          </ul>
         </>
       ) : (
-        <div className="flex flex-col items-center gap-4 mt-14">
+        <div className="flex flex-col items-center gap-4 mt-14 text-center">
           <Title>Nothing added to Wishlist</Title>
           <p className="text-gray-600 text-lg">
             Looks like you haven’t saved any items yet. Browse our catalog and
             add what you love!
           </p>
-          <LinkButton to="/products">
+          <LinkButton to={ROUTES.products}>
             <FaArrowLeft />
             <span>Browse Products</span>
           </LinkButton>

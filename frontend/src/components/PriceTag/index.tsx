@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
-
-import { formatPrice } from '../../helpers';
 import { twMerge } from 'tailwind-merge';
+
+import { formatPrice } from '@helpers';
 
 interface PriceTagProps extends HTMLAttributes<HTMLDivElement> {
   regularPrice: number;

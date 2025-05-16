@@ -1,7 +1,9 @@
 import ContentLoader from 'react-content-loader';
-import { useGetHighlightsQuery } from '../../api/publicApiSlice';
-import { LinkButton } from '../LinkButton';
-import { Section } from '../Section';
+
+import { useGetHighlightsQuery } from '@api/publicApiSlice';
+
+import { LinkButton } from './../LinkButton';
+import { Section } from './../Section';
 
 export const Highlights = () => {
   const { data, isFetching, isSuccess } = useGetHighlightsQuery();
