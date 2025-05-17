@@ -45,6 +45,7 @@ export const AddToCartButton = ({
   const handleDecreaseBtn = () => {
     if (availableItem?.quantity && availableItem?.quantity > 1) {
       dispatch(decreaseQuantity(item._id));
+
       toast.success(
         `${item.name.slice(0, 12).trim()}... decreased successfully!`,
         {

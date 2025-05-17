@@ -50,7 +50,10 @@ export const publicApiSlice = createApi({
             items.map((item) => axios.get(`${baseUrl}/products/${item.id}`)),
           );
 
-          const data: ProductItem[] = response.map((item) => item.data);
+          const data: ProductItem[] = response.map((item) => ({
+            ...item.data,
+            quantity: items.find((i) => i.id == item.data._id)?.quantity || 1,
+          }));
 
           return { data };
         } catch (error: unknown) {

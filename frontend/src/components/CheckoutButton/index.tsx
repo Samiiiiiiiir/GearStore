@@ -23,7 +23,6 @@ export const CheckoutButton = ({ products }: CheckoutButtonProps) => {
 
       const res = await stripe?.redirectToCheckout({ sessionId: data.id });
 
-      // console.log(res);
       if (res?.error) {
         console.log(res.error.message);
       }

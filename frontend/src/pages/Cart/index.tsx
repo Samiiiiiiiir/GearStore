@@ -22,6 +22,8 @@ export const Cart = () => {
   const { isFetching, isLoading, isSuccess, data } =
     useGetCartProductsQuery(cart);
 
+  console.log('data', data);
+
   const orderTotal = formatPrice(
     discountedPrice + SHIPPING_ESTIMATE + TAX_ESTIMATE,
   );

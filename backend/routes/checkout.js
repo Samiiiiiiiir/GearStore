@@ -12,8 +12,6 @@ router.post('/checkout', async (req, res) => {
   try {
     const { products, email } = await req.body;
 
-    console.log(products, email);
-
     const extractingproducts = await products.map((item) => ({
       quantity: item.quantity,
       price_data: {
@@ -31,7 +29,7 @@ router.post('/checkout', async (req, res) => {
       payment_method_types: ['card'],
       line_items: extractingproducts,
       mode: 'payment',
-      success_url: 'http://localhost:5173/success', // ?session_id={CHECKOUT_SESSION_ID}
+      success_url: `http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: 'http://localhost:5173/cancel',
       metadata: {
         email,

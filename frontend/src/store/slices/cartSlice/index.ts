@@ -57,8 +57,8 @@ const cartSlice = createSlice({
           }
         });
 
-        state.regularPrice = regularPrice;
-        state.discountedPrice = discountedPrice;
+        // state.regularPrice = regularPrice;
+        // state.discountedPrice = discountedPrice;
       },
     );
   },
