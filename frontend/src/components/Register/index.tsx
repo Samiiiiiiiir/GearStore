@@ -35,11 +35,11 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const formData = new FormData(e.currentTarget);
-    const { email, password, firstname, lastname } =
-      Object.fromEntries(formData);
-
     try {
+      const formData = new FormData(e.currentTarget);
+      const { email, password, firstname, lastname } =
+        Object.fromEntries(formData);
+
       const res = await createUserWithEmailAndPassword(
         auth,
         email as string,
@@ -52,6 +52,7 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
         email,
         id: res.user.uid,
       });
+      setAuthMode(AuthMode.LOGIN);
     } catch (e: unknown) {
       if (e instanceof FirebaseError) {
         console.error(e.message);
@@ -59,7 +60,6 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
       }
     } finally {
       setIsLoading(false);
-      setAuthMode(AuthMode.LOGIN);
     }
   };
 
@@ -82,17 +82,17 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
         <div className="flex flex-col gap-6 lg:gap-8 py-6 lg:py-8">
           <div className="flex gap-6 lg:gap-8 flex-wrap">
             <Label className="grow" text="First name">
-              <Input type="text" name="firstname" />
+              <Input required type="text" name="firstname" />
             </Label>
             <Label className="grow" text="Last name">
-              <Input type="text" name="lastname" />
+              <Input required type="text" name="lastname" />
             </Label>
           </div>
           <Label text="Email address">
-            <Input type="email" name="email" />
+            <Input required type="email" name="email" />
           </Label>
           <Label text="Password">
-            <Input type="password" name="password" />
+            <Input required type="password" name="password" />
           </Label>
           <div>
             {error && (
@@ -111,11 +111,12 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
         <p className="text-center">
           <span className="text-gray-400">Alreade have an account?</span>{' '}
           <button
+            type="button"
             disabled={isLoading}
             onClick={() => setAuthMode(AuthMode.LOGIN)}
             className="underline cursor-pointer text-white/90 hover:text-white duration-200"
           >
-            Login
+            Sign in
           </button>
         </p>
       </form>

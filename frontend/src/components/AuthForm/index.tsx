@@ -6,12 +6,12 @@ import { Login } from './../Login';
 import { Register } from './../Register';
 
 export const AuthForm = () => {
-  const [authMode, setAuthMode] = useState<AuthMode>(AuthMode.REGISTER);
+  const [authMode, setAuthMode] = useState<AuthMode>(AuthMode.LOGIN);
 
   return (
     <div>
       {authMode === AuthMode.LOGIN ? (
-        <Login />
+        <Login setAuthMode={setAuthMode} />
       ) : (
         <Register setAuthMode={setAuthMode} />
       )}

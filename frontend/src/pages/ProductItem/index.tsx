@@ -82,7 +82,7 @@ export const ProductItem = () => {
             </p>
             <AddToCartButton
               item={data}
-              className="uppercase text-white bg-black/80 hover:bg-black w-[80%] self-center"
+              className="uppercase text-white bg-black/80 hover:bg-black w-full self-center"
             >
               buy now
             </AddToCartButton>

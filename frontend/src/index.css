@@ -17,3 +17,7 @@
     display: none;
   }
 }
+
+html {
+  @apply overflow-y-scroll;
+}

@@ -4,8 +4,8 @@ import { publicApiSlice } from '@api/publicApiSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
 import cartSlice from './slices/cartSlice';
+import userSlice from './slices/userSlice';
 import wishlistSlice from './slices/wishlistSlice';
-import userSlice from './slices/wishlistSlice';
 
 export const store = configureStore({
   reducer: {
