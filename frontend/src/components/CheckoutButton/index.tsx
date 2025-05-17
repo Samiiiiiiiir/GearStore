@@ -1,10 +1,33 @@
-import { useAppSelector } from '@store';
+import axios from 'axios';
 
-export const CheckoutButton = () => {
+import { baseUrl, stripePublishKey } from '@lib/constants';
+import { useAppSelector } from '@store';
+import { loadStripe } from '@stripe/stripe-js';
+import { ProductItem } from '@types';
+
+interface CheckoutButtonProps {
+  products: ProductItem[];
+}
+
+export const CheckoutButton = ({ products }: CheckoutButtonProps) => {
   const { user } = useAppSelector((state) => state.userSlice);
 
-  const handleClick = () => {
-    console.log('yo');
+  const handleClick = async () => {
+    if (user) {
+      const stripe = await loadStripe(stripePublishKey);
+
+      const { data } = await axios.post(`${baseUrl}/checkout`, {
+        products,
+        email: user.email,
+      });
+
+      const res = await stripe?.redirectToCheckout({ sessionId: data.id });
+
+      // console.log(res);
+      if (res?.error) {
+        console.log(res.error.message);
+      }
+    }
   };
 
   return (

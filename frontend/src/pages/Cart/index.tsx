@@ -74,7 +74,7 @@ export const Cart = () => {
                     <span className="font-semibold">Order total</span>
                     <span className="text-xl font-bold">{orderTotal}</span>
                   </div>
-                  <CheckoutButton />
+                  <CheckoutButton products={data} />
                 </div>
               </div>
             </>

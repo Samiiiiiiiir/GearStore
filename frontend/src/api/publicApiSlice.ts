@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
+import { baseUrl } from '@lib/constants';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   CartItem,
@@ -9,12 +10,10 @@ import {
   ProductsResponse,
 } from '@types';
 
-const baseUrl: string = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-
 export const publicApiSlice = createApi({
   reducerPath: 'publicApi',
   baseQuery: fetchBaseQuery({
-    baseUrl,
+    baseUrl: baseUrl || 'http://localhost:3000/',
   }),
   endpoints: (build) => ({
     getCategories: build.query<CategoryItem[], void>({
