@@ -3,13 +3,13 @@ import { FaRegCheckCircle } from 'react-icons/fa';
 import { IoMdClose, IoMdCloseCircle } from 'react-icons/io';
 import { Link } from 'react-router';
 
+import { QuantityControlButton } from '@components/QuantityControlButton';
 import { formatPrice } from '@helpers';
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 import { useAppDispatch, useAppSelector } from '@store';
 import { removeFromCart } from '@store/slices/cartSlice';
 import { ProductItem } from '@types';
 
-import { AddToCartButton } from './../AddToCartButton';
 import { PriceTag } from './../PriceTag';
 
 interface CartProductProps {
@@ -76,9 +76,7 @@ export const CartProduct = ({ item }: CartProductProps) => {
                 discountedPrice={item.discountedPrice * quantity}
                 className="text-lg"
               />
-              <AddToCartButton item={item} inCartClassName="gap-6 self-start">
-                Add to cart
-              </AddToCartButton>
+              <QuantityControlButton item={item} className="self-start" />
             </div>
             <div>
               <div className="flex gap-2 items-center text-gray-500 font-medium mb-0.5">

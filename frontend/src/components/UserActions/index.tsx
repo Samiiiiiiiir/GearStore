@@ -1,21 +1,13 @@
-import { useEffect, useState } from 'react';
 import { FiUser } from 'react-icons/fi';
 import { IoBagOutline, IoHeartOutline } from 'react-icons/io5';
 import { Link } from 'react-router';
 
-import { calculateCartItems } from '@helpers';
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 import { useAppSelector } from '@store';
 
 export const UserActions = () => {
-  const [cartItems, setCartItems] = useState(0);
-
   const { cart } = useAppSelector((state) => state.cartSlice);
   const { list } = useAppSelector((state) => state.wishlistSlice);
-
-  useEffect(() => {
-    setCartItems(calculateCartItems(cart));
-  }, [cart]);
 
   return (
     <div className="flex items-center gap-3 sm:gap-4">
@@ -34,7 +26,7 @@ export const UserActions = () => {
         <div className="relative">
           <IoBagOutline size={32} className="hover:text-blue duration-200" />
           <div className="absolute top-[-18%] right-[-25%] inline-flex items-center justify-center bg-red text-white text-sm rounded-full w-[22px] h-[22px]">
-            {cartItems}
+            {cart.length}
           </div>
         </div>
       </Link>

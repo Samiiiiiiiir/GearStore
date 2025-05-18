@@ -2,7 +2,7 @@ import toast from 'react-hot-toast';
 import { IoHeartOutline, IoHeartSharp } from 'react-icons/io5';
 import { Link } from 'react-router';
 
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 import { Rating } from '@smastrom/react-rating';
 import { useAppDispatch, useAppSelector } from '@store';
 import { toggleWishlistItem } from '@store/slices/wishlistSlice';
@@ -33,7 +33,7 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
 
     toast.success(
       `${item.name.slice(0, 12).trim()}... ${
-        isAdded ? 'removed from cart' : 'added to cart!'
+        isAdded ? 'removed from wishlist!' : 'added to wishlist!'
       }`,
       {
         style: {
@@ -58,16 +58,16 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
             className="w-full h-full object-scale-down group-hover:scale-110 duration-300 select-none"
           />
         </Link>
-        <div
+        <button
           onClick={handleAddToWishlistBtn}
-          className="group/inner absolute top-1 right-[-100%] w-9 h-9 flex justify-center items-center z-3 group-hover:right-1 duration-300 bg-black hover:scale-110  rounded-full"
+          className="cursor-pointer group/inner absolute top-1 right-[-100%] w-9 h-9 flex justify-center items-center z-3 group-hover:right-1 duration-300 bg-black hover:scale-110  rounded-full"
         >
           {isAdded ? (
             <IoHeartSharp size={24} color="red" />
           ) : (
             <IoHeartOutline size={24} color="white" />
           )}
-        </div>
+        </button>
       </div>
       <div className="pt-2 px-2 grid gap-2">
         <h3 className="text-sm uppercase font-semibold text-light">
@@ -87,7 +87,7 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
           regularPrice={item.regularPrice}
           discountedPrice={item.discountedPrice}
         />
-        <AddToCartButton item={item}>Add To Cart</AddToCartButton>
+        <AddToCartButton item={item} />
       </div>
     </article>
   );

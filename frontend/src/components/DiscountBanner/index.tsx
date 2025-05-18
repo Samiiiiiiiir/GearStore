@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 
 import { discountImgOne, discountImgTwo } from './../../assets';
 import { LinkButton } from './../LinkButton';

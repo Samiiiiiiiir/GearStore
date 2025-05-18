@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
 import { MainLayout } from '@layout/MainLayout';
+import { ROUTES } from '@lib/constants';
 import { Cancel } from '@pages/Cancel';
 import { Cart } from '@pages/Cart';
 import { Home } from '@pages/Home';
@@ -11,19 +12,6 @@ import { Products } from '@pages/Products';
 import { Profile } from '@pages/Profile';
 import { Success } from '@pages/Success';
 import { Wishlist } from '@pages/Wishlist';
-
-export const ROUTES = {
-  main: '/',
-  products: '/products',
-  productItem: '/products/:id',
-  profile: '/profile',
-  cart: '/cart',
-  wishlist: '/wishlist',
-  orders: '/orders',
-  success: '/success',
-  cancel: '/cancel',
-  notFound: '*',
-};
 
 const router = createBrowserRouter([
   {

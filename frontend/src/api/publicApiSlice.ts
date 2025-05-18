@@ -77,4 +77,5 @@ export const {
   useGetProductsByCategoryQuery,
   useGetOneProductQuery,
   useGetCartProductsQuery,
+  useLazyGetCartProductsQuery,
 } = publicApiSlice;

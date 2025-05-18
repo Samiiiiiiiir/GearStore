@@ -3,10 +3,11 @@ import { useNavigate, useParams } from 'react-router';
 
 import { useGetOneProductQuery } from '@api/publicApiSlice';
 import { AddToCartButton } from '@components/AddToCartButton';
+import { FormattedPrice } from '@components/FormattedPrice';
 import { PageLoader } from '@components/PageLoader';
 import { PriceTag } from '@components/PriceTag';
 import { Title } from '@components/Title';
-import { formatPrice } from '@helpers';
+import { WishListButton } from '@components/WishlistButton';
 import { Rating } from '@smastrom/react-rating';
 
 export const ProductItem = () => {
@@ -75,17 +76,16 @@ export const ProductItem = () => {
             </div>
             <p className="text-lg">
               You are saving{' '}
-              <span className="font-semibold">
-                {formatPrice(data.regularPrice - data.discountedPrice)}
-              </span>{' '}
+              <FormattedPrice
+                price={data.regularPrice - data.discountedPrice}
+                className="font-semibold"
+              />{' '}
               upon purchase!
             </p>
-            <AddToCartButton
-              item={data}
-              className="uppercase text-white bg-black/80 hover:bg-black w-full self-center"
-            >
-              buy now
-            </AddToCartButton>
+            <div className="grid grid-cols-2 gap-5">
+              <AddToCartButton item={data} />
+              <WishListButton item={data} />
+            </div>
           </div>
         </div>
       )}

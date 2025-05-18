@@ -2,7 +2,7 @@ import ContentLoader from 'react-content-loader';
 import { Link } from 'react-router';
 
 import { useGetCategoriesQuery } from '@api/publicApiSlice';
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 
 import { Section } from './../Section';
 import { SectionHeader } from './../SectionHeader';

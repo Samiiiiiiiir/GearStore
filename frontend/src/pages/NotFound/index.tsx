@@ -2,7 +2,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { useLocation } from 'react-router';
 
 import { LinkButton } from '@components/LinkButton';
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 
 export const NotFound = () => {
   const { pathname } = useLocation();

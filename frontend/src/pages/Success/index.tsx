@@ -5,10 +5,11 @@ import toast from 'react-hot-toast';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router';
 
+import { useLazyGetCartProductsQuery } from '@api/publicApiSlice';
 import { LinkButton } from '@components/LinkButton';
 import { PageLoader } from '@components/PageLoader';
+import { ROUTES } from '@lib/constants';
 import { db } from '@lib/firebase';
-import { ROUTES } from '@router/AppRouter';
 import { useAppDispatch, useAppSelector } from '@store';
 import { clearCart } from '@store/slices/cartSlice';
 
@@ -16,11 +17,10 @@ export const Success = () => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useAppDispatch();
-  const { user, cart, list } = useAppSelector((state) => ({
-    user: state.userSlice.user,
-    cart: state.cartSlice.cart,
-    list: state.wishlistSlice.list,
-  }));
+  const { user } = useAppSelector((state) => state.userSlice);
+  const { cart } = useAppSelector((state) => state.cartSlice);
+
+  const [trigger] = useLazyGetCartProductsQuery();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -30,9 +30,12 @@ export const Success = () => {
   useEffect(() => {
     if (!sessionId) {
       navigate('/');
+      return;
     }
 
     const saveOrder = async () => {
+      const orderedItems = await trigger(cart).unwrap();
+
       if (user) {
         try {
           setLoading(true);
@@ -44,7 +47,7 @@ export const Success = () => {
               orders: arrayUnion({
                 userEmail: user.email,
                 paymentId: sessionId,
-                orderedItems: cart,
+                orderedItems,
                 paymentMethod: 'stripe',
                 userId: user.id,
               }),
@@ -58,7 +61,7 @@ export const Success = () => {
                 {
                   userEmail: user.email,
                   paymentId: sessionId,
-                  orderedItems: cart,
+                  orderedItems,
                   paymentMethod: 'stripe',
                 },
               ],

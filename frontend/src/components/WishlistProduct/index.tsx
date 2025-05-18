@@ -1,7 +1,7 @@
 import { IoMdClose } from 'react-icons/io';
 import { Link } from 'react-router';
 
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 import { useAppDispatch } from '@store';
 import { toggleWishlistItem } from '@store/slices/wishlistSlice';
 import { ProductItem } from '@types';

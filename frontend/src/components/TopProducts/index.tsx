@@ -1,4 +1,4 @@
-import { ROUTES } from '@router/AppRouter';
+import { ROUTES } from '@lib/constants';
 
 import { Pagination } from './../Pagination';
 import { Section } from './../Section';

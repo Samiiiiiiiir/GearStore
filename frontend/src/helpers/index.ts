@@ -1,2 +1,2 @@
 export * from './formatPrice';
-export * from './calculateCartItems';
+export * from './calculateAmount';

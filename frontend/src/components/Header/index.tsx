@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import { useGetCategoriesQuery } from '@api/publicApiSlice.ts';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { ROUTES } from '@router/AppRouter.tsx';
+import { ROUTES } from '@lib/constants';
 
 import { Container } from './../Container';
 import { SearchBar } from './../SearchBar';
