@@ -24,16 +24,14 @@ export const CartProduct = ({ item }: CartProductProps) => {
   const quantity = cart.find((i) => i.id == item._id)?.quantity;
 
   const handleDeleteBtn = () => {
-    if (confirm('Are you sure?')) {
-      dispatch(removeFromCart(item._id));
-      toast.success(`${item.name.slice(0, 20).trim()} deleted successfully!`, {
-        style: {
-          borderRadius: '10px',
-          background: '#333',
-          color: '#fff',
-        },
-      });
-    }
+    dispatch(removeFromCart(item._id));
+    toast.success(`${item.name.slice(0, 20).trim()} deleted successfully!`, {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    });
   };
 
   return (

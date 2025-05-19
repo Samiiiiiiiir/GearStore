@@ -19,14 +19,14 @@ export const OrderItem = ({ item }: OrderItemProps) => {
   return (
     <Disclosure>
       <DisclosureButton className="pt-1 pb-5 mt-4 text-lg group w-full border-b-1 border-b-gray-300 cursor-pointer">
-        <div className="flex items-center justify-between gap-6">
+        <div className="flex items-center flex-row justify-between gap-x-6 gap-y-2">
           <div>
-            <span className="font-semibold">Tracking number:</span>{' '}
-            {item.paymentId}
+            <span className="font-semibold">Tracking number: </span>
+            <span className="break-all">{item.paymentId}</span>
           </div>
           <FaChevronDown
             size={22}
-            className="fill-black group-data-open:rotate-180"
+            className="shrink-0 fill-black group-data-open:rotate-180"
           />
         </div>
       </DisclosureButton>
@@ -56,7 +56,7 @@ export const OrderItem = ({ item }: OrderItemProps) => {
         {item.orderedItems.map((item) => (
           <div
             key={item._id}
-            className="flex gap-6 border-y-gray-300 border-b-1 py-6"
+            className="flex flex-col xs:flex-row gap-6 border-y-gray-300 border-b-1 py-6"
           >
             <Link
               to={`${ROUTES.products}/${item._id}`}

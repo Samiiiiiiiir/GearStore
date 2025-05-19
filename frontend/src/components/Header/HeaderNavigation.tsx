@@ -5,7 +5,7 @@ import { headerNavigationData } from './data';
 export const HeaderNavigation = () => {
   return (
     <nav>
-      <ul className="hidden md:inline-flex gap-6 lg:gap-10 items-center">
+      <ul className="hidden sm:inline-flex gap-6 lg:gap-10 items-center">
         {headerNavigationData.map(({ title, path }) => (
           <li key={title}>
             <NavLink

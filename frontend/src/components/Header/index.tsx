@@ -14,9 +14,9 @@ export const Header = () => {
   const { data, isSuccess, isError } = useGetCategoriesQuery();
 
   return (
-    <header className="sticky top-0 z-49 bg-white">
-      <Container className="items-center justify-between py-0 flex h-20 gap-4 sm:gap-12">
-        <h1>
+    <header className="sticky top-0 z-49 bg-white shadow-lg">
+      <Container className="items-center flex justify-between py-0  h-20 gap-1 sm:gap-12">
+        <h1 className="">
           <Link
             to={ROUTES.main}
             className="text-3xl font-bold whitespace-nowrap"
@@ -28,7 +28,7 @@ export const Header = () => {
         <UserActions />
       </Container>
       <div className="bg-dark">
-        <Container className="py-3 text-white flex items-center md:justify-evenly gap-16">
+        <Container className="py-3 text-white flex items-center justify-between lg:justify-evenly gap-16">
           <Menu>
             <MenuButton className="inline-flex items-center gap-2 cursor-pointer border text-gray-300 hover:text-white duration-200 p-1.5 rounded-md border-gray-300 hover:border-white ">
               <span>Select Category</span>
