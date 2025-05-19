@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 import { OrderItem } from '@components/OrderItem';
 import { Title } from '@components/Title';
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 import { db } from '@lib/firebase';
 import { useAppSelector } from '@store';
 import { IOrderItem } from '@types';

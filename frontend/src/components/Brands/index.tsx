@@ -1,21 +1,6 @@
-import {
-  brandFive,
-  brandFour,
-  brandOne,
-  brandThree,
-  brandTwo,
-} from '@assets/index';
-
 import { Section } from './../Section';
 import { Title } from './../Title';
-
-const brandsData = [
-  { source: brandOne, title: 'Xiaomi' },
-  { source: brandTwo, title: 'Sony' },
-  { source: brandThree, title: 'Marshall' },
-  { source: brandFour, title: 'LG' },
-  { source: brandFive, title: 'JBL' },
-];
+import { brandsData } from './data.ts';
 
 export const Brands = () => {
   return (

@@ -1,7 +1,7 @@
 import { FaArrowLeft } from 'react-icons/fa';
 
 import { homeBanner } from '@assets/index';
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 
 import { LinkButton } from './../LinkButton';
 import { Section } from './../Section';

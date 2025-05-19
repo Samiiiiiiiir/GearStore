@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
-import { baseUrl } from '@lib/constants';
+import { baseUrl } from '@constants';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   CartItem,

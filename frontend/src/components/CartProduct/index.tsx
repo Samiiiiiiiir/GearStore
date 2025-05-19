@@ -4,8 +4,8 @@ import { IoMdClose, IoMdCloseCircle } from 'react-icons/io';
 import { Link } from 'react-router';
 
 import { QuantityControlButton } from '@components/QuantityControlButton';
+import { ROUTES } from '@constants';
 import { formatPrice } from '@helpers';
-import { ROUTES } from '@lib/constants';
 import { useAppDispatch, useAppSelector } from '@store';
 import { removeFromCart } from '@store/slices/cartSlice';
 import { ProductItem } from '@types';

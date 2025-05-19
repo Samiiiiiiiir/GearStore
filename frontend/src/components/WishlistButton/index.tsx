@@ -4,7 +4,7 @@ import { IoHeartOutline } from 'react-icons/io5';
 import { Link } from 'react-router';
 import { twMerge } from 'tailwind-merge';
 
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 import { useAppDispatch, useAppSelector } from '@store';
 import { toggleWishlistItem } from '@store/slices/wishlistSlice';
 import { ProductItem } from '@types';

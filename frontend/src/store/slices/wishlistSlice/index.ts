@@ -22,12 +22,9 @@ const wishlistSlice = createSlice({
         state.list.push(action.payload);
       }
     },
-    clearWishlist: (state) => {
-      state.list = [];
-    },
   },
 });
 
-export const { toggleWishlistItem, clearWishlist } = wishlistSlice.actions;
+export const { toggleWishlistItem } = wishlistSlice.actions;
 
 export default wishlistSlice.reducer;

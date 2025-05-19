@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router';
 import { useLazyGetCartProductsQuery } from '@api/publicApiSlice';
 import { LinkButton } from '@components/LinkButton';
 import { PageLoader } from '@components/PageLoader';
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 import { db } from '@lib/firebase';
 import { useAppDispatch, useAppSelector } from '@store';
 import { clearCart } from '@store/slices/cartSlice';
@@ -87,7 +87,7 @@ export const Success = () => {
             ? 'Order payment is processing...'
             : 'Your payment accepted!'}
         </h2>
-        <p className="">Now you can view your orders or continue shopping!</p>
+        <p>Now you can view your orders or continue shopping!</p>
         <div className="flex gap-6">
           <LinkButton to={ROUTES.orders}>
             <FaArrowLeft />

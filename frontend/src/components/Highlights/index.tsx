@@ -6,13 +6,13 @@ import { LinkButton } from './../LinkButton';
 import { Section } from './../Section';
 
 export const Highlights = () => {
-  const { data, isFetching, isSuccess } = useGetHighlightsQuery();
+  const { data, isFetching, isLoading, isSuccess } = useGetHighlightsQuery();
 
   return (
     <Section>
       <h2 className="sr-only">Highlights</h2>
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-between">
-        {isFetching &&
+        {(isFetching || isLoading) &&
           new Array(3).fill(null).map((_, i) => (
             <li key={i}>
               <ContentLoader

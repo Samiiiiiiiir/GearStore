@@ -37,7 +37,8 @@
       "@router/*": ["src/router/*"],
       "@types": ["src/types/index.ts"],
       "@types/*": ["src/types/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@constants": ["src/constants/index.ts"]
     }
   },
   "include": ["src"]

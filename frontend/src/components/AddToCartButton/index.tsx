@@ -3,7 +3,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { twMerge } from 'tailwind-merge';
 
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 import { useAppDispatch, useAppSelector } from '@store';
 import { addToCart } from '@store/slices/cartSlice';
 import { ProductItem } from '@types';

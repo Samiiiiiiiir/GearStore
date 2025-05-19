@@ -2,8 +2,8 @@ import { FaChevronDown } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 import { useGetCategoriesQuery } from '@api/publicApiSlice.ts';
+import { ROUTES } from '@constants';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { ROUTES } from '@lib/constants';
 
 import { Container } from './../Container';
 import { SearchBar } from './../SearchBar';
@@ -11,7 +11,7 @@ import { UserActions } from './../UserActions';
 import { HeaderNavigation } from './HeaderNavigation.tsx';
 
 export const Header = () => {
-  const { data: categoriesData, isSuccess, isError } = useGetCategoriesQuery();
+  const { data, isSuccess, isError } = useGetCategoriesQuery();
 
   return (
     <header className="sticky top-0 z-49 bg-white">
@@ -28,7 +28,7 @@ export const Header = () => {
         <UserActions />
       </Container>
       <div className="bg-dark">
-        <Container className="py-3 text-white flex items-center md:justify-evenly gap-16 ">
+        <Container className="py-3 text-white flex items-center md:justify-evenly gap-16">
           <Menu>
             <MenuButton className="inline-flex items-center gap-2 cursor-pointer border text-gray-300 hover:text-white duration-200 p-1.5 rounded-md border-gray-300 hover:border-white ">
               <span>Select Category</span>
@@ -48,7 +48,7 @@ export const Header = () => {
                 </MenuItem>
               )}
               {isSuccess &&
-                categoriesData.map((item) => (
+                data.map((item) => (
                   <MenuItem key={item._id}>
                     <Link
                       to={`${ROUTES.products}?active=${item._base}`}

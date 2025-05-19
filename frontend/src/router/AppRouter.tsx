@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
+import { ROUTES } from '@constants';
 import { MainLayout } from '@layout/MainLayout';
-import { ROUTES } from '@lib/constants';
 import { Cancel } from '@pages/Cancel';
 import { Cart } from '@pages/Cart';
 import { Home } from '@pages/Home';

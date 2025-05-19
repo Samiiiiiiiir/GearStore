@@ -3,7 +3,7 @@ import { FaArrowLeft } from 'react-icons/fa6';
 import { LinkButton } from '@components/LinkButton';
 import { Title } from '@components/Title';
 import { WishlistProduct } from '@components/WishlistProduct';
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 import { useAppSelector } from '@store';
 
 export const Wishlist = () => {

@@ -2,7 +2,7 @@ import toast from 'react-hot-toast';
 import { IoHeartOutline, IoHeartSharp } from 'react-icons/io5';
 import { Link } from 'react-router';
 
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 import { Rating } from '@smastrom/react-rating';
 import { useAppDispatch, useAppSelector } from '@store';
 import { toggleWishlistItem } from '@store/slices/wishlistSlice';

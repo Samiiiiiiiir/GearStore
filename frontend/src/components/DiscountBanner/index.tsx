@@ -1,21 +1,13 @@
 import { Link } from 'react-router';
 
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 
 import { discountImgOne, discountImgTwo } from './../../assets';
 import { LinkButton } from './../LinkButton';
 import { Section } from './../Section';
 import { SectionHeader } from './../SectionHeader';
 import { Title } from './../Title';
-
-const searchItems = [
-  { title: 'Smart Watches', link: 'smartWatches' },
-  { title: 'Headphone', link: 'headphones' },
-  { title: 'Cameras', link: 'camerasAndPhotos' },
-  { title: 'Audio', link: 'tvAndAudio' },
-  { title: 'Laptop & Computers', link: 'computersAndLaptop' },
-  { title: 'Cell Phone', link: 'cellPhones' },
-];
+import { searchItems } from './data';
 
 export const DiscountBanner = () => {
   return (

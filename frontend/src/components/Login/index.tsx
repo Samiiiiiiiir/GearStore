@@ -31,9 +31,10 @@ export const Login = ({ setAuthMode }: LoginProps) => {
 
   const handleSubmitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
 
     try {
+      setIsLoading(true);
+
       const formData = new FormData(e.currentTarget);
       const { email, password } = Object.fromEntries(formData);
 

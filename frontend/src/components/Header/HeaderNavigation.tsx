@@ -1,12 +1,6 @@
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
-const headerNavigationData = [
-  { title: 'home', path: '/' },
-  { title: 'shop', path: '/products' },
-  { title: 'cart', path: '/cart' },
-  { title: 'orders', path: '/orders' },
-  { title: 'my account', path: '/profile' },
-];
+import { headerNavigationData } from './data';
 
 export const HeaderNavigation = () => {
   return (
@@ -14,13 +8,15 @@ export const HeaderNavigation = () => {
       <ul className="hidden md:inline-flex gap-6 lg:gap-10 items-center">
         {headerNavigationData.map(({ title, path }) => (
           <li key={title}>
-            <Link
+            <NavLink
+              className={({ isActive }) =>
+                `${isActive ? 'text-white' : 'text-white/75 hover:text-white'} group text-sm inline-flex items-center py-1 duration-200 relative overflow-hidden`
+              }
               to={path}
-              className="group text-sm inline-flex items-center py-1 text-white/85 hover:text-white duration-200 relative overflow-hidden"
             >
-              <span>{title.toUpperCase()}</span>
+              <span className="uppercase">{title}</span>
               <span className="absolute w-0 bottom-0 border-b-1 bg-white group-hover:w-full duration-200" />
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

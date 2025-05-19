@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { baseUrl, stripePublishKey } from '@lib/constants';
+import { baseUrl, stripePublishKey } from '@constants';
 import { useAppSelector } from '@store';
 import { loadStripe } from '@stripe/stripe-js';
 import { ProductItem } from '@types';

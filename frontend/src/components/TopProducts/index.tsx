@@ -1,4 +1,4 @@
-import { ROUTES } from '@lib/constants';
+import { ROUTES } from '@constants';
 
 import { Pagination } from './../Pagination';
 import { Section } from './../Section';

@@ -10,7 +10,7 @@ import { FormattedPrice } from '@components/FormattedPrice';
 import { LinkButton } from '@components/LinkButton';
 import { PageLoader } from '@components/PageLoader';
 import { Title } from '@components/Title';
-import { ROUTES, SHIPPING_ESTIMATE, TAX_ESTIMATE } from '@lib/constants';
+import { ROUTES, SHIPPING_ESTIMATE, TAX_ESTIMATE } from '@constants';
 import { useAppDispatch, useAppSelector } from '@store';
 import { clearCart } from '@store/slices/cartSlice';
 

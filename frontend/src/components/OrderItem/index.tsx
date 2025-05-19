@@ -2,13 +2,13 @@ import { FaChevronDown } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 import { FormattedPrice } from '@components/FormattedPrice';
+import { ROUTES } from '@constants';
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react';
 import { calculateAmount } from '@helpers';
-import { ROUTES } from '@lib/constants';
 import { IOrderItem } from '@types';
 
 interface OrderItemProps {
