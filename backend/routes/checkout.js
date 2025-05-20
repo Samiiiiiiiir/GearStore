@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 const router = Router();
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const baseUrl = process.env.STRIPE_SECRET_KEY;
 
 router.post('/checkout', async (req, res) => {
   const stripe = new Stripe(stripeSecretKey, {
@@ -29,8 +30,8 @@ router.post('/checkout', async (req, res) => {
       payment_method_types: ['card'],
       line_items: extractingproducts,
       mode: 'payment',
-      success_url: `https://gear-shop-nine.vercel.app/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: 'https://gear-shop-nine.vercel.app/cancel',
+      success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/cancel`,
       metadata: {
         email,
       },
