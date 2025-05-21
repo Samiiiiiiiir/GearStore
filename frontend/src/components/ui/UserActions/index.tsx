@@ -11,13 +11,13 @@ export const UserActions = () => {
 
   return (
     <div className="flex items-center gap-3 sm:gap-4">
-      <Link to={ROUTES.profile}>
+      <Link to={ROUTES.profile} aria-label="profile">
         <FiUser
           size={32}
           className="text-gray-600 duration-200 hover:text-gray-950"
         />
       </Link>
-      <Link to={ROUTES.wishlist}>
+      <Link to={ROUTES.wishlist} aria-label="wishlist">
         <div className="relative">
           <IoHeartOutline
             size={32}
@@ -28,7 +28,7 @@ export const UserActions = () => {
           </div>
         </div>
       </Link>
-      <Link to={ROUTES.cart}>
+      <Link to={ROUTES.cart} aria-label="cart">
         <div className="relative">
           <IoBagOutline
             size={32}

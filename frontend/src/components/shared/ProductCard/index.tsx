@@ -60,6 +60,7 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
         </Link>
         <button
           onClick={handleAddToWishlistBtn}
+          aria-label={isAdded ? 'Remove from wishlist' : 'Add to wishlist'}
           className="group/inner absolute top-1 right-[-100%] z-3 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-black duration-300 group-hover:right-1 hover:scale-110"
         >
           {isAdded ? (

@@ -17,7 +17,7 @@ export const Header = () => {
     <header className="sticky top-0 z-49 bg-white shadow-lg">
       <Container className="flex h-20 items-center justify-between gap-1 py-0 sm:gap-12">
         <h1 className="text-[26px] font-bold whitespace-nowrap sm:text-3xl">
-          <Link to={ROUTES.main}>Gear-shop</Link>
+          <Link to={ROUTES.main}>GearStore</Link>
         </h1>
         <SearchBar />
         <UserActions />
