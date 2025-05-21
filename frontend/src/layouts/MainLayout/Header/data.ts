@@ -5,5 +5,5 @@ export const headerNavigationData = [
   { title: 'shop', path: ROUTES.products },
   { title: 'cart', path: ROUTES.cart },
   { title: 'orders', path: ROUTES.orders },
-  { title: 'my account', path: ROUTES.profile },
+  { title: 'my profile', path: ROUTES.profile },
 ];

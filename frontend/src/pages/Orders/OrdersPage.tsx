@@ -12,7 +12,7 @@ import { db } from '@utils';
 
 import { OrderItem } from './OrderItem';
 
-export const Orders = () => {
+const Orders = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [orders, setOrders] = useState<IOrderItem[]>([]);
 
@@ -119,3 +119,5 @@ export const Orders = () => {
     </>
   );
 };
+
+export default Orders;

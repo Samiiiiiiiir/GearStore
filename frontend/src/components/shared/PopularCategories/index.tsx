@@ -39,6 +39,7 @@ export const PopularCategories = () => {
             >
               <Link to={`${ROUTES.products}?active=${item._base}`}>
                 <img
+                  loading="lazy"
                   src={item.image}
                   alt={item.name}
                   className="w-full h-auto object-cover duration-300 group-hover:scale-110"

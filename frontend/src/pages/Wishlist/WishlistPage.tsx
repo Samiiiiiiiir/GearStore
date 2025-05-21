@@ -7,7 +7,7 @@ import { useAppSelector } from '@services/state/store';
 
 import { WishlistProduct } from './WishlistProduct';
 
-export const Wishlist = () => {
+const Wishlist = () => {
   const { list } = useAppSelector((state) => state.wishlistSlice);
 
   return (
@@ -39,3 +39,5 @@ export const Wishlist = () => {
     </div>
   );
 };
+
+export default Wishlist;

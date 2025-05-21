@@ -8,7 +8,12 @@ export const Footer = () => {
     <footer>
       <Container className="py-6 flex md:justify-between flex-col md:flex-row items-start md:items-center gap-3">
         <p>@{year} E-commerce solutions. All rights reserved</p>
-        <img className="object-cover" src={payment} alt="payment" />
+        <img
+          loading="lazy"
+          className="object-cover"
+          src={payment}
+          alt="payment"
+        />
       </Container>
     </footer>
   );

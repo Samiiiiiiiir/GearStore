@@ -15,6 +15,7 @@ export const Brands = () => {
               className={`py-1 grid items-center justify-center w-50 lg:w-64 border-y-1 not-first:border-l-1 border-gray-400 `}
             >
               <img
+                loading="lazy"
                 src={source}
                 alt={title}
                 title={title}

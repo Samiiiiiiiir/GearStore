@@ -13,7 +13,7 @@ import { clearCart } from '@services/state/slices/cartSlice';
 import { useAppDispatch, useAppSelector } from '@services/state/store';
 import { db } from '@utils';
 
-export const Success = () => {
+const Success = () => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useAppDispatch();
@@ -102,3 +102,5 @@ export const Success = () => {
     </div>
   );
 };
+
+export default Success;

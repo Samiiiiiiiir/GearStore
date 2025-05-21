@@ -16,28 +16,23 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-49 bg-white shadow-lg">
       <Container className="items-center flex justify-between py-0 h-20 gap-1 sm:gap-12">
-        <h1 className="">
-          <Link
-            to={ROUTES.main}
-            className="text-3xl font-bold whitespace-nowrap"
-          >
-            Gear-shop
-          </Link>
+        <h1 className="text-[26px] sm:text-3xl font-bold whitespace-nowrap">
+          <Link to={ROUTES.main}>Gear-shop</Link>
         </h1>
         <SearchBar />
         <UserActions />
       </Container>
       <div className="bg-dark">
-        <Container className="py-3 text-white flex items-center justify-between lg:justify-evenly gap-16">
+        <Container className="py-3.5 text-white flex items-center justify-end sm:justify-between lg:justify-evenly gap-16">
           <Menu>
-            <MenuButton className="inline-flex items-center gap-2 cursor-pointer border text-gray-300 hover:text-white duration-200 p-1.5 rounded-md border-gray-300 hover:border-white ">
+            <MenuButton className="hidden sm:inline-flex items-center gap-2 cursor-pointer border text-gray-300 hover:text-white duration-200 p-1.5 rounded-md border-gray-300 hover:border-white ">
               <span>Select Category</span>
               <FaChevronDown size={15} />
             </MenuButton>
             <MenuItems
               anchor="bottom start"
               transition
-              className="grid gap-1.5 p-1 text-sm text-gray-300 bg-black origin-top-left transition duration-200 ease-out data-closed:scale-95 data-closed:opacity-0 border-none rounded-lg outline-none z-50"
+              className="grid gap-1.5 p-1 text-sm text-gray-300 bg-black origin-top-left transition duration-200 ease-out data-closed:scale-95 data-closed:opacity-0 border-none rounded-lg outline-none z-49"
             >
               {isError && (
                 <MenuItem>
@@ -56,6 +51,7 @@ export const Header = () => {
                     >
                       <div className="bg-white p-1 rounded-full flex items-center justify-center">
                         <img
+                          loading="lazy"
                           src={item.image}
                           alt={item._base}
                           width={24}

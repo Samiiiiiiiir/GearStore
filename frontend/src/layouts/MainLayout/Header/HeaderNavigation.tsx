@@ -5,12 +5,12 @@ import { headerNavigationData } from './data';
 export const HeaderNavigation = () => {
   return (
     <nav>
-      <ul className="hidden sm:inline-flex gap-6 lg:gap-10 items-center">
+      <ul className="inline-flex gap-x-4 sm:gap-x-6 gap-y-2 lg:gap-x-8 items-center">
         {headerNavigationData.map(({ title, path }) => (
           <li key={title}>
             <NavLink
               className={({ isActive }) =>
-                `${isActive ? 'text-white' : 'text-white/75 hover:text-white'} group text-sm inline-flex items-center py-1 duration-200 relative overflow-hidden`
+                `${isActive ? 'text-white' : 'text-white/75 hover:text-white'} group text-sm inline-flex items-center py-1 duration-200 relative overflow-hidden whitespace-nowrap`
               }
               to={path}
             >

@@ -16,7 +16,7 @@ import { SHIPPING_ESTIMATE, TAX_ESTIMATE } from '@utils';
 
 import { CartProduct } from './CartProduct';
 
-export const Cart = () => {
+const Cart = () => {
   const dispatch = useAppDispatch();
   const { cart } = useAppSelector((state) => state.cartSlice);
 
@@ -134,10 +134,17 @@ export const Cart = () => {
             </LinkButton>
           </div>
           <div className="max-w-[460px]">
-            <img src={emptyCart} alt="" className="object-scale-down" />
+            <img
+              loading="lazy"
+              src={emptyCart}
+              alt=""
+              className="object-scale-down"
+            />
           </div>
         </div>
       )}
     </div>
   );
 };
+
+export default Cart;

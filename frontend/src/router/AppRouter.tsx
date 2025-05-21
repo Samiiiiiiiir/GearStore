@@ -1,23 +1,30 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
+import { PageLoader } from '@components/ui/PageLoader';
 import { MainLayout } from '@layouts/MainLayout';
-import { Cancel } from '@pages/Cancel/CancelPage';
-import { Cart } from '@pages/Cart/CartPage';
-import { Home } from '@pages/Home/HomePage';
-import { NotFound } from '@pages/NotFound/NotFoundPage';
-import { Orders } from '@pages/Orders/OrdersPage';
-import { ProductItem } from '@pages/ProductItem/ProductItemPage';
-import { Products } from '@pages/Products/ProductsPage';
-import { Profile } from '@pages/Profile/ProfilePage';
-import { Success } from '@pages/Success/SuccessPage';
-import { Wishlist } from '@pages/Wishlist/WishlistPage';
 
 import { ROUTES } from './routes';
+
+const Cancel = lazy(() => import('@pages/Cancel/CancelPage'));
+const Cart = lazy(() => import('@pages/Cart/CartPage'));
+const Home = lazy(() => import('@pages/Home/HomePage'));
+const NotFound = lazy(() => import('@pages/NotFound/NotFoundPage'));
+const Orders = lazy(() => import('@pages/Orders/OrdersPage'));
+const ProductItem = lazy(() => import('@pages/ProductItem/ProductItemPage'));
+const Products = lazy(() => import('@pages/Products/ProductsPage'));
+const Profile = lazy(() => import('@pages/Profile/ProfilePage'));
+const Success = lazy(() => import('@pages/Success/SuccessPage'));
+const Wishlist = lazy(() => import('@pages/Wishlist/WishlistPage'));
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />,
+    element: (
+      <Suspense fallback={<PageLoader />}>
+        <MainLayout />
+      </Suspense>
+    ),
     children: [
       { path: ROUTES.main, element: <Home /> },
       { path: ROUTES.products, element: <Products /> },

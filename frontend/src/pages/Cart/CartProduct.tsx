@@ -39,6 +39,7 @@ export const CartProduct = ({ item }: CartProductProps) => {
         <div className="py-8 flex gap-8 border-y-gray-300 border-b-1 max-w-full">
           <Link to={`${ROUTES.products}/${item._id}`} className="shrink-0">
             <img
+              loading="lazy"
               src={item.images[0]}
               alt=""
               className="h-21 w-21 sm:h-42 sm:w-42 rounded-md object-scale-down border border-blue/30 hover:border-blue duration-200 p-2"

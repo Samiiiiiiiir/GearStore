@@ -22,6 +22,7 @@ export const WishlistProduct = ({ item }: WishlistProductProps) => {
     <div className="flex gap-6 border-y-gray-300 border-b-1 py-6">
       <Link to={`${ROUTES.products}/${item._id}`} className="shrink-0">
         <img
+          loading="lazy"
           src={item.images[0]}
           alt=""
           className="h-30 w-30 sm:h-42 sm:w-42 rounded-md object-scale-down border border-blue/30 hover:border-blue duration-200 p-2"

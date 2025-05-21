@@ -46,13 +46,14 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
   };
 
   return (
-    <article className="border border-gray-200 rounded-lg p-2 overflow-hidden hover:border-black/40 duration-200">
+    <article className="border border-gray-200 rounded-lg p-2 overflow-hidden hover:border-black/40 duration-200 h-full flex flex-col justify-between">
       <div className="group w-full h-60 relative overflow-hidden">
         <span className="absolute top-1 left-1 z-2 bg-dark text-white py-1 px-1.5 rounded-md text-xs text-center uppercase">
           Save {percentage}%
         </span>
         <Link to={`${ROUTES.products}/${item._id}`} onClick={onClick}>
           <img
+            loading="lazy"
             src={item.images[0]}
             alt={item.name}
             className="w-full h-full object-scale-down group-hover:scale-110 duration-300 select-none"
@@ -70,7 +71,7 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
         </button>
       </div>
       <div className="pt-2 px-2 grid gap-2">
-        <h3 className="text-sm uppercase font-semibold text-light">
+        <h3 className="text-sm uppercase font-semibold text-light line-clamp-1">
           {item.overView}
         </h3>
         <h3 className="text-lg font-semibold line-clamp-2" title={item.name}>

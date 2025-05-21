@@ -6,7 +6,7 @@ import { HomeBanner } from '@components/shared/HomeBanner';
 import { PopularCategories } from '@components/shared/PopularCategories';
 import { TopProducts } from '@components/shared/TopProducts';
 
-export const Home = () => {
+const Home = () => {
   return (
     <>
       <HomeBanner />
@@ -19,3 +19,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

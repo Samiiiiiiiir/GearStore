@@ -31,6 +31,7 @@ export const Highlights = () => {
               className="relative rounded-lg overflow-hidden h-46 lg:h-60 shadow-md group cursor-pointer"
             >
               <img
+                loading="lazy"
                 src={item.image}
                 alt={item.name}
                 className="absolute w-full h-full object-cover -z-1 group-hover:scale-110 duration-300"

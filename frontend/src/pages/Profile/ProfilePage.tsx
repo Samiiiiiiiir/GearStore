@@ -4,7 +4,7 @@ import { useAppSelector } from '@services/state/store';
 import { AuthForm } from './components/AuthForm';
 import { UserInfo } from './components/UserInfo';
 
-export const Profile = () => {
+const Profile = () => {
   const { user, isLoading } = useAppSelector((state) => state.userSlice);
 
   return (
@@ -19,3 +19,5 @@ export const Profile = () => {
     </div>
   );
 };
+
+export default Profile;

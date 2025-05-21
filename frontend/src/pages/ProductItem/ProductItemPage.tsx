@@ -10,7 +10,7 @@ import { WishListButton } from '@components/ui/WishlistButton';
 import { useGetOneProductQuery } from '@services/api/publicApiSlice';
 import { Rating } from '@smastrom/react-rating';
 
-export const ProductItem = () => {
+const ProductItem = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   const { id } = useParams();
@@ -36,6 +36,7 @@ export const ProductItem = () => {
                   key={i}
                   src={item}
                   alt=""
+                  loading="lazy"
                   onClick={() => setActiveImage(i)}
                   className={`w-16 xl:w-24 aspect-square cursor-pointer object-scale-down p-1 border-1 rounded-sm border-gray-500 hover:opacity-100 duration-300 ${
                     activeImage == i ? 'opacity-100' : 'opacity-80'
@@ -47,6 +48,7 @@ export const ProductItem = () => {
               <img
                 src={data.images[activeImage]}
                 alt={data.name}
+                loading="lazy"
                 className="w-full h-full object-scale-down absolute inset-0"
               />
             </div>
@@ -92,3 +94,5 @@ export const ProductItem = () => {
     </>
   );
 };
+
+export default ProductItem;

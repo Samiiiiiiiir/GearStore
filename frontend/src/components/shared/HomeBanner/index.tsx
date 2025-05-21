@@ -9,6 +9,7 @@ export const HomeBanner = () => {
   return (
     <Section className="relative">
       <img
+        loading="lazy"
         src={homeBanner}
         alt=""
         className="relative object-cover -z-1 rounded-lg select-none w-full h-full filter-[grayscale(20%)]"

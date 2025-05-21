@@ -31,6 +31,7 @@ export const DiscountBanner = () => {
       </ul>
       <div className="bg-[#f4f4f4] rounded-lg relative overflow-hidden z-0">
         <img
+          loading="lazy"
           src={discountImgOne}
           alt=""
           className="hidden md:block absolute top-0 -z-1"
@@ -50,6 +51,7 @@ export const DiscountBanner = () => {
         <img
           src={discountImgTwo}
           alt=""
+          loading="lazy"
           className="hidden md:block absolute right-0 bottom-0 -z-1"
         />
       </div>

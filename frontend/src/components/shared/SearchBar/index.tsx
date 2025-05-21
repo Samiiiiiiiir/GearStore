@@ -45,7 +45,7 @@ export const SearchBar = () => {
       </div>
 
       {searchValue && (
-        <div className="hidden sm:block absolute bg-white left-0 h-[60vh] overflow-y-scroll no-scrollbar z-50 w-full top-20 shadow-lg shadow-gray-400 p-3">
+        <div className="hidden sm:block absolute bg-white left-0 h-[60vh] overflow-y-scroll no-scrollbar z-49 w-full top-20 shadow-lg shadow-gray-400 p-3">
           {filteredData.length > 0 ? (
             <ul className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
               {filteredData.map((item) => (

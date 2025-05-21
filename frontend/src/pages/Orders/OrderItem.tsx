@@ -63,6 +63,7 @@ export const OrderItem = ({ item }: OrderItemProps) => {
               className="shrink-0 h-30 w-30 bg-white p-2 rounded-sm"
             >
               <img
+                loading="lazy"
                 src={item.images[0]}
                 alt=""
                 className="h-full w-full object-scale-down p-2"

@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 import { LinkButton } from '@components/ui/LinkButton';
 import { ROUTES } from '@router/routes';
 
-export const NotFound = () => {
+const NotFound = () => {
   const { pathname } = useLocation();
 
   return (
@@ -24,3 +24,5 @@ export const NotFound = () => {
     </div>
   );
 };
+
+export default NotFound;
