@@ -19,20 +19,20 @@ export const WishlistProduct = ({ item }: WishlistProductProps) => {
   };
 
   return (
-    <div className="flex gap-6 border-y-gray-300 border-b-1 py-6">
+    <div className="flex gap-6 border-b-1 border-y-gray-300 py-6">
       <Link to={`${ROUTES.products}/${item._id}`} className="shrink-0">
         <img
           loading="lazy"
           src={item.images[0]}
           alt=""
-          className="h-30 w-30 sm:h-42 sm:w-42 rounded-md object-scale-down border border-blue/30 hover:border-blue duration-200 p-2"
+          className="border-blue/30 hover:border-blue h-30 w-30 rounded-md border object-scale-down p-2 duration-200 sm:h-42 sm:w-42"
         />
       </Link>
       <div className="flex flex-col gap-3">
-        <h3 className="font-semibold md:text-xl line-clamp-2">{item.name}</h3>
+        <h3 className="line-clamp-2 font-semibold md:text-xl">{item.name}</h3>
         <p className="line-clamp-3">{item.description}</p>
         <LinkButton
-          className="self-start py-2.5 px-4 md:py-3.5 md:px-6 text-sm sm:text-base"
+          className="self-start px-4 py-2.5 text-sm sm:text-base md:px-6 md:py-3.5"
           to={`${ROUTES.products}/${item._id}`}
         >
           View Product
@@ -40,7 +40,7 @@ export const WishlistProduct = ({ item }: WishlistProductProps) => {
       </div>
       <button
         onClick={handleDeleteBtn}
-        className="self-start cursor-pointer text-gray-800 hover:text-red-600 duration-300"
+        className="cursor-pointer self-start text-gray-800 duration-300 hover:text-red-600"
       >
         <IoMdClose size={26} />
       </button>

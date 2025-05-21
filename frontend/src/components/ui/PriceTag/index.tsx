@@ -18,7 +18,7 @@ export const PriceTag = ({
 
   return (
     <div className={classes} {...props}>
-      <span className="line-through text-gray-600">
+      <span className="text-gray-600 line-through">
         {formatPrice(regularPrice)}
       </span>
       <span className="text-blue">{formatPrice(discountedPrice)}</span>

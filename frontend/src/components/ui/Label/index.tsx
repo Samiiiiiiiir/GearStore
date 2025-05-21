@@ -8,7 +8,7 @@ interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
 export const Label = ({ children, text, ...props }: LabelProps) => {
   return (
     <label {...props}>
-      <span className="block mb-3">{text}</span>
+      <span className="mb-3 block">{text}</span>
       {children}
     </label>
   );

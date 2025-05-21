@@ -32,7 +32,7 @@ export const Pagination = () => {
     <div ref={wrapperRef}>
       {isSuccess && (
         <>
-          <ul className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 pt-8">
+          <ul className="grid gap-6 pt-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
             {response.items.map((item) => (
               <li key={item._id}>
                 <ProductCard item={item} />

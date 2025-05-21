@@ -14,16 +14,16 @@ export const UserActions = () => {
       <Link to={ROUTES.profile}>
         <FiUser
           size={32}
-          className="text-gray-600 hover:text-gray-950 duration-200"
+          className="text-gray-600 duration-200 hover:text-gray-950"
         />
       </Link>
       <Link to={ROUTES.wishlist}>
         <div className="relative">
           <IoHeartOutline
             size={32}
-            className="text-gray-600 hover:text-gray-950 duration-200"
+            className="text-gray-600 duration-200 hover:text-gray-950"
           />
-          <div className="absolute top-[-18%] right-[-25%] inline-flex items-center justify-center bg-red text-white text-sm rounded-full w-[22px] h-[22px]">
+          <div className="bg-red absolute top-[-18%] right-[-25%] inline-flex h-[22px] w-[22px] items-center justify-center rounded-full text-sm text-white">
             {list.length}
           </div>
         </div>
@@ -32,9 +32,9 @@ export const UserActions = () => {
         <div className="relative">
           <IoBagOutline
             size={32}
-            className="text-gray-600 hover:text-gray-950 duration-200"
+            className="text-gray-600 duration-200 hover:text-gray-950"
           />
-          <div className="absolute top-[-18%] right-[-25%] inline-flex items-center justify-center bg-red text-white text-sm rounded-full w-[22px] h-[22px]">
+          <div className="bg-red absolute top-[-18%] right-[-25%] inline-flex h-[22px] w-[22px] items-center justify-center rounded-full text-sm text-white">
             {cart.length}
           </div>
         </div>

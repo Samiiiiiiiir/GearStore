@@ -4,11 +4,11 @@ import { customerServiceItems } from './data';
 
 export const CustomerService = () => {
   return (
-    <section className="my-6 lg:my-8 p-6 lg:p-16 grid gap-14 rounded-xl bg-[#f6f6f6]">
+    <section className="my-6 grid gap-14 rounded-xl bg-[#f6f6f6] p-6 lg:my-8 lg:p-16">
       <Title className="text-center">
         We built our business on customer service
       </Title>
-      <ul className="grid lg:grid-cols-3 gap-6">
+      <ul className="grid gap-6 lg:grid-cols-3">
         {customerServiceItems.map(({ title, desc, Icon }) => (
           <li
             key={title}
@@ -16,8 +16,8 @@ export const CustomerService = () => {
           >
             <Icon width={50} height={50} className="shrink-0" />
             <div className="grid gap-2">
-              <h3 className="text-gray-900 font-medium text-lg">{title}</h3>
-              <p className="text-gray-500 text-sm lg:text-base">{desc}</p>
+              <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+              <p className="text-sm text-gray-500 lg:text-base">{desc}</p>
             </div>
           </li>
         ))}

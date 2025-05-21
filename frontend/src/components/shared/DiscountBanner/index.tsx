@@ -17,42 +17,42 @@ export const DiscountBanner = () => {
         linkText="View All"
         title="Popular Search"
       />
-      <ul className="flex gap-4 flex-wrap">
+      <ul className="flex flex-wrap gap-4">
         {searchItems.map(({ link, title }) => (
           <li key={title}>
             <LinkButton
               to={`${ROUTES.products}?active=${link}`}
-              className="bg-transparent text-black hover:text-white border-gray-300 border-1"
+              className="border-1 border-gray-300 bg-transparent text-black hover:text-white"
             >
               {title}
             </LinkButton>
           </li>
         ))}
       </ul>
-      <div className="bg-[#f4f4f4] rounded-lg relative overflow-hidden z-0">
+      <div className="relative z-0 overflow-hidden rounded-lg bg-[#f4f4f4]">
         <img
           loading="lazy"
           src={discountImgOne}
           alt=""
-          className="hidden md:block absolute top-0 -z-1"
+          className="absolute top-0 -z-1 hidden md:block"
         />
-        <div className="flex justify-center items-center gap-1 lg:gap-3  mb-2 pt-8">
+        <div className="mb-2 flex items-center justify-center gap-1 pt-8 lg:gap-3">
           <Title>Sony Headphone</Title>
           <Link
             to={ROUTES.products}
-            className="py-1 px-3 lg:py-3 lg:px-5 rounded-full font-semibold text-lg lg:text-2xl border-1 border-red text-red hover:text-white hover:bg-red duration-200 relative z-2"
+            className="border-red text-red hover:bg-red relative z-2 rounded-full border-1 px-3 py-1 text-lg font-semibold duration-200 hover:text-white lg:px-5 lg:py-3 lg:text-2xl"
           >
             Discount 20%
           </Link>
         </div>
-        <div className="text-center text-sm font-semibold pb-8 text-gray-600">
+        <div className="pb-8 text-center text-sm font-semibold text-gray-600">
           You’re out to play or stepping out to make
         </div>
         <img
           src={discountImgTwo}
           alt=""
           loading="lazy"
-          className="hidden md:block absolute right-0 bottom-0 -z-1"
+          className="absolute right-0 bottom-0 -z-1 hidden md:block"
         />
       </div>
     </Section>

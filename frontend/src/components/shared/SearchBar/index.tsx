@@ -25,19 +25,19 @@ export const SearchBar = () => {
 
   return (
     <>
-      <div className="hidden sm:inline-flex items-center max-w-3xl w-full relative">
+      <div className="relative hidden w-full max-w-3xl items-center sm:inline-flex">
         <input
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           type="text"
           placeholder="Search products..."
-          className="w-full pl-5 pr-12 py-[10px] rounded-full shadow-sm ring-1 ring-gray-400 ring-inset focus:ring-dark placeholder:text-base placeholder:tracking-wide"
+          className="focus:ring-dark w-full rounded-full py-[10px] pr-12 pl-5 shadow-sm ring-1 ring-gray-400 ring-inset placeholder:text-base placeholder:tracking-wide"
         />
         {searchValue ? (
           <IoClose
             onClick={() => setSearchValue('')}
             size={24}
-            className="absolute right-4 cursor-pointer hover:text-red-400 duration-200"
+            className="absolute right-4 cursor-pointer duration-200 hover:text-red-400"
           />
         ) : (
           <CiSearch size={24} className="absolute right-4" />
@@ -45,9 +45,9 @@ export const SearchBar = () => {
       </div>
 
       {searchValue && (
-        <div className="hidden sm:block absolute bg-white left-0 h-[60vh] overflow-y-scroll no-scrollbar z-49 w-full top-20 shadow-lg shadow-gray-400 p-3">
+        <div className="no-scrollbar absolute top-20 left-0 z-49 hidden h-[60vh] w-full overflow-y-scroll bg-white p-3 shadow-lg shadow-gray-400 sm:block">
           {filteredData.length > 0 ? (
-            <ul className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-5">
               {filteredData.map((item) => (
                 <li key={item._id}>
                   <ProductCard item={item} onClick={() => setSearchValue('')} />
@@ -55,10 +55,10 @@ export const SearchBar = () => {
               ))}
             </ul>
           ) : (
-            <div className="text-xl py-8 flex items-center h-full justify-center px-4 text-center">
+            <div className="flex h-full items-center justify-center px-4 py-8 text-center text-xl">
               <p>
                 Nothing matches with your search keywords{' '}
-                <span className="underline underline-offset-2 decoration-[1px] text-gray-500 font-semibold">{`(${searchValue})`}</span>
+                <span className="font-semibold text-gray-500 underline decoration-[1px] underline-offset-2">{`(${searchValue})`}</span>
               </p>
             </div>
           )}

@@ -2,16 +2,15 @@ import toast from 'react-hot-toast';
 import { IoHeartOutline, IoHeartSharp } from 'react-icons/io5';
 import { Link } from 'react-router';
 
+import { AddToCartButton } from '@components/ui/AddToCartButton';
+import { PriceTag } from '@components/ui/PriceTag';
+import { ROUTES } from '@router/routes';
 import { toggleWishlistItem } from '@services/state/slices/wishlistSlice';
 import { useAppDispatch, useAppSelector } from '@services/state/store';
 import { Rating } from '@smastrom/react-rating';
 import { ProductItem } from '@types';
 
 import '@smastrom/react-rating/style.css';
-
-import { AddToCartButton } from '@components/ui/AddToCartButton';
-import { PriceTag } from '@components/ui/PriceTag';
-import { ROUTES } from '@router/routes';
 
 interface ProductCardProps {
   item: ProductItem;
@@ -46,9 +45,9 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
   };
 
   return (
-    <article className="border border-gray-200 rounded-lg p-2 overflow-hidden hover:border-black/40 duration-200 h-full flex flex-col justify-between">
-      <div className="group w-full h-60 relative overflow-hidden">
-        <span className="absolute top-1 left-1 z-2 bg-dark text-white py-1 px-1.5 rounded-md text-xs text-center uppercase">
+    <article className="flex h-full flex-col justify-between overflow-hidden rounded-lg border border-gray-200 p-2 duration-200 hover:border-black/40">
+      <div className="group relative h-60 w-full overflow-hidden">
+        <span className="bg-dark absolute top-1 left-1 z-2 rounded-md px-1.5 py-1 text-center text-xs text-white uppercase">
           Save {percentage}%
         </span>
         <Link to={`${ROUTES.products}/${item._id}`} onClick={onClick}>
@@ -56,12 +55,12 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
             loading="lazy"
             src={item.images[0]}
             alt={item.name}
-            className="w-full h-full object-scale-down group-hover:scale-110 duration-300 select-none"
+            className="h-full w-full object-scale-down duration-300 select-none group-hover:scale-110"
           />
         </Link>
         <button
           onClick={handleAddToWishlistBtn}
-          className="cursor-pointer group/inner absolute top-1 right-[-100%] w-9 h-9 flex justify-center items-center z-3 group-hover:right-1 duration-300 bg-black hover:scale-110  rounded-full"
+          className="group/inner absolute top-1 right-[-100%] z-3 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-black duration-300 group-hover:right-1 hover:scale-110"
         >
           {isAdded ? (
             <IoHeartSharp size={24} color="red" />
@@ -70,11 +69,11 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
           )}
         </button>
       </div>
-      <div className="pt-2 px-2 grid gap-2">
-        <h3 className="text-sm uppercase font-semibold text-light line-clamp-1">
+      <div className="grid gap-2 px-2 pt-2">
+        <h3 className="text-light line-clamp-1 text-sm font-semibold uppercase">
           {item.overView}
         </h3>
-        <h3 className="text-lg font-semibold line-clamp-2" title={item.name}>
+        <h3 className="line-clamp-2 text-lg font-semibold" title={item.name}>
           {item.name}
         </h3>
         <div title={String(item.rating)}>

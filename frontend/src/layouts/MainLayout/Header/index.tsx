@@ -15,24 +15,24 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-49 bg-white shadow-lg">
-      <Container className="items-center flex justify-between py-0 h-20 gap-1 sm:gap-12">
-        <h1 className="text-[26px] sm:text-3xl font-bold whitespace-nowrap">
+      <Container className="flex h-20 items-center justify-between gap-1 py-0 sm:gap-12">
+        <h1 className="text-[26px] font-bold whitespace-nowrap sm:text-3xl">
           <Link to={ROUTES.main}>Gear-shop</Link>
         </h1>
         <SearchBar />
         <UserActions />
       </Container>
       <div className="bg-dark">
-        <Container className="py-3.5 text-white flex items-center justify-end sm:justify-between lg:justify-evenly gap-16">
+        <Container className="flex items-center justify-end gap-16 py-3.5 text-white sm:justify-between lg:justify-evenly">
           <Menu>
-            <MenuButton className="hidden sm:inline-flex items-center gap-2 cursor-pointer border text-gray-300 hover:text-white duration-200 p-1.5 rounded-md border-gray-300 hover:border-white ">
+            <MenuButton className="hidden cursor-pointer items-center gap-2 rounded-md border border-gray-300 p-1.5 text-gray-300 duration-200 hover:border-white hover:text-white sm:inline-flex">
               <span>Select Category</span>
               <FaChevronDown size={15} />
             </MenuButton>
             <MenuItems
               anchor="bottom start"
               transition
-              className="grid gap-1.5 p-1 text-sm text-gray-300 bg-black origin-top-left transition duration-200 ease-out data-closed:scale-95 data-closed:opacity-0 border-none rounded-lg outline-none z-49"
+              className="z-49 grid origin-top-left gap-1.5 rounded-lg border-none bg-black p-1 text-sm text-gray-300 transition duration-200 ease-out outline-none data-closed:scale-95 data-closed:opacity-0"
             >
               {isError && (
                 <MenuItem>
@@ -47,16 +47,16 @@ export const Header = () => {
                   <MenuItem key={item._id}>
                     <Link
                       to={`${ROUTES.products}?active=${item._base}`}
-                      className="data-focus:text-blue data-focus:bg-white/20 duration-200 flex items-center gap-2 py-1 px-3.5 rounded-md"
+                      className="data-focus:text-blue flex items-center gap-2 rounded-md px-3.5 py-1 duration-200 data-focus:bg-white/20"
                     >
-                      <div className="bg-white p-1 rounded-full flex items-center justify-center">
+                      <div className="flex items-center justify-center rounded-full bg-white p-1">
                         <img
                           loading="lazy"
                           src={item.image}
                           alt={item._base}
                           width={24}
                           height={24}
-                          className="rounded-md object-contain w-6 h-6"
+                          className="h-6 w-6 rounded-md object-contain"
                         />
                       </div>
                       <span>{item.name}</span>

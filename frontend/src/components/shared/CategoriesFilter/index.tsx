@@ -29,35 +29,35 @@ export const CategoriesFilter = ({ active }: CategoriesFilterProps) => {
     <div className="inline-flex flex-col gap-1 sm:p-2">
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-dark/85 text-white py-3 px-10 self-center rounded-full text-center cursor-pointer block shadow-md whitespace-nowrap sm:hidden"
+        className="bg-dark/85 block cursor-pointer self-center rounded-full px-10 py-3 text-center whitespace-nowrap text-white shadow-md sm:hidden"
       >
         Categories
       </button>
-      <h3 className="hidden sm:block text-lg mb-1 font-semibold uppercase whitespace-nowrap">
+      <h3 className="mb-1 hidden text-lg font-semibold whitespace-nowrap uppercase sm:block">
         select categories
       </h3>
 
       {isOpen && (
         <div
-          className="fixed bg-dark/40 h-screen w-screen top-0 left-0 z-50 cursor-pointer sm:hidden "
+          className="bg-dark/40 fixed top-0 left-0 z-50 h-screen w-screen cursor-pointer sm:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       <div
         className={twMerge(
-          'flex flex-col justify-between max-sm:z-50 bg-white max-sm:top-0 max-sm:fixed max-sm:h-screen max-sm:w-[max(66%,250px)] max-sm:text-center max-sm:gap-5 max-sm:py-7',
+          'flex flex-col justify-between bg-white max-sm:fixed max-sm:top-0 max-sm:z-50 max-sm:h-screen max-sm:w-[max(66%,250px)] max-sm:gap-5 max-sm:py-7 max-sm:text-center',
           isOpen ? 'max-sm:left-0' : 'max-sm:-left-full',
         )}
       >
-        <div className="flex flex-col text-xl sm:text-lg gap-3 sm:gap-1 overflow-y-auto">
+        <div className="flex flex-col gap-3 overflow-y-auto text-xl sm:gap-1 sm:text-lg">
           {isSuccess &&
             data.map((item) => (
               <Link
                 key={item._id}
                 to={`?active=${item._base}`}
                 onClick={() => setIsOpen(false)}
-                className={`font-medium underline underline-offset-2 decoration-1 decoration-transparent hover:decoration-gray-950 hover:text-black duration-200 ${
+                className={`font-medium underline decoration-transparent decoration-1 underline-offset-2 duration-200 hover:text-black hover:decoration-gray-950 ${
                   item._base == active
                     ? 'text-blue decoration-blue'
                     : 'text-light'
@@ -70,7 +70,7 @@ export const CategoriesFilter = ({ active }: CategoriesFilterProps) => {
         </div>
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="self-center px-14 text-white rounded-full text-center py-3 bg-dark/85 cursor-pointer shadow-md sm:hidden "
+          className="bg-dark/85 cursor-pointer self-center rounded-full px-14 py-3 text-center text-white shadow-md sm:hidden"
         >
           Close
         </button>

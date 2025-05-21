@@ -17,13 +17,13 @@ export const PopularCategories = () => {
         linkText="View All Categories"
         linkPath={ROUTES.products}
       />
-      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 pt-8">
+      <ul className="grid grid-cols-2 gap-4 pt-8 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-6">
         {(isLoading || isFetching) &&
           new Array(12).fill(null).map((_, i) => (
             <li key={i}>
               <ContentLoader
                 speed={2}
-                className="rounded-md overflow-hidden w-full h-auto aspect-square"
+                className="aspect-square h-auto w-full overflow-hidden rounded-md"
                 backgroundColor="#f3f3f3"
                 foregroundColor="#ecebeb"
               >
@@ -35,16 +35,16 @@ export const PopularCategories = () => {
           data.map((item) => (
             <li
               key={item._id}
-              className="rounded-md overflow-hidden relative group"
+              className="group relative overflow-hidden rounded-md"
             >
               <Link to={`${ROUTES.products}?active=${item._base}`}>
                 <img
                   loading="lazy"
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-auto object-cover duration-300 group-hover:scale-110"
+                  className="h-auto w-full object-cover duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white text-center font-bold p-4">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-center font-bold text-white">
                   {item.name}
                 </div>
               </Link>

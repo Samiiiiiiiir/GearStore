@@ -2,7 +2,7 @@ import { RotatingLines } from 'react-loader-spinner';
 
 export const PageLoader = () => {
   return (
-    <div className="fixed w-full h-full inset-0 z-49 flex items-center justify-center bg-black/20">
+    <div className="fixed inset-0 z-49 flex h-full w-full items-center justify-center bg-black/20">
       <RotatingLines
         visible={true}
         width="100"

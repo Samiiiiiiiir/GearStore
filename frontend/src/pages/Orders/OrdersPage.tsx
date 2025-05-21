@@ -54,13 +54,13 @@ const Orders = () => {
                     <Title className="mb-1">Order details</Title>
                     <p className="text-lg">
                       Customer:
-                      <span className="font-semibold text-xl">
+                      <span className="text-xl font-semibold">
                         {user.firstname} {user.lastname}
                       </span>
                     </p>
                     <p className="text-lg">
                       Total orders:
-                      <span className="font-semibold text-xl">
+                      <span className="text-xl font-semibold">
                         {orders.length}
                       </span>
                     </p>
@@ -79,12 +79,12 @@ const Orders = () => {
                 </>
               ) : (
                 <div className="flex justify-center">
-                  <div className="flex flex-col gap-5 w-2xl">
+                  <div className="flex w-2xl flex-col gap-5">
                     <Title className="text-center">
                       You don't have any orders yet
                     </Title>
                     <div className="flex justify-between gap-2">
-                      <p className="text-gray-600 text-lg">
+                      <p className="text-lg text-gray-600">
                         Ready to find something you love? Explore our latest
                         products and get started!
                       </p>
@@ -100,12 +100,12 @@ const Orders = () => {
           )}
         </div>
       ) : (
-        <div className="text-center my-8">
+        <div className="my-8 text-center">
           <Title className="mb-2">
             To view your orders, please{' '}
             <Link
               to={ROUTES.profile}
-              className="text-blue/80 hover:text-blue transition-colors underline"
+              className="text-blue/80 hover:text-blue underline transition-colors"
             >
               sign in
             </Link>

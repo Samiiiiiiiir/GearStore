@@ -8,8 +8,8 @@ const NotFound = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="grid gap-6 my-14">
-      <div className="text-3xl lg:text-4xl text-red font-semibold">SORRY</div>
+    <div className="my-14 grid gap-6">
+      <div className="text-red text-3xl font-semibold lg:text-4xl">SORRY</div>
       <div className="text-2xl lg:text-3xl">
         We couldn't find <span className="text-red underline">{pathname}</span>{' '}
         page

@@ -18,8 +18,8 @@ interface OrderItemProps {
 export const OrderItem = ({ item }: OrderItemProps) => {
   return (
     <Disclosure>
-      <DisclosureButton className="pt-1 pb-5 mt-4 text-lg group w-full border-b-1 border-b-gray-300 cursor-pointer">
-        <div className="flex items-center flex-row justify-between gap-x-6 gap-y-2">
+      <DisclosureButton className="group mt-4 w-full cursor-pointer border-b-1 border-b-gray-300 pt-1 pb-5 text-lg">
+        <div className="flex flex-row items-center justify-between gap-x-6 gap-y-2">
           <div>
             <span className="font-semibold">Tracking number: </span>
             <span className="break-all">{item.paymentId}</span>
@@ -30,8 +30,8 @@ export const OrderItem = ({ item }: OrderItemProps) => {
           />
         </div>
       </DisclosureButton>
-      <DisclosurePanel className="w-full border-x-1 border-b-1 border-gray-300 p-5 bg-[#f6f6f6]">
-        <p className="font-semibold text-lg mb-1.5">
+      <DisclosurePanel className="w-full border-x-1 border-b-1 border-gray-300 bg-[#f6f6f6] p-5">
+        <p className="mb-1.5 text-lg font-semibold">
           Your order{' '}
           <span className="text-blue">#{item.paymentId.slice(0, 20)}...</span>{' '}
           has shipped and will be with you soon
@@ -56,11 +56,11 @@ export const OrderItem = ({ item }: OrderItemProps) => {
         {item.orderedItems.map((item) => (
           <div
             key={item._id}
-            className="flex flex-col xs:flex-row gap-6 border-y-gray-300 border-b-1 py-6"
+            className="xs:flex-row flex flex-col gap-6 border-b-1 border-y-gray-300 py-6"
           >
             <Link
               to={`${ROUTES.products}/${item._id}`}
-              className="shrink-0 h-30 w-30 bg-white p-2 rounded-sm"
+              className="h-30 w-30 shrink-0 rounded-sm bg-white p-2"
             >
               <img
                 loading="lazy"
@@ -70,7 +70,7 @@ export const OrderItem = ({ item }: OrderItemProps) => {
               />
             </Link>
             <div className="flex flex-col gap-3">
-              <h3 className="font-semibold md:text-lg line-clamp-2">
+              <h3 className="line-clamp-2 font-semibold md:text-lg">
                 {item.name}
               </h3>
               <p className="line-clamp-3 text-sm">{item.description}</p>

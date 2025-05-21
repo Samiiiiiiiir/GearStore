@@ -40,7 +40,7 @@ export const WishListButton = ({ item }: WishListButtonProps) => {
         <Link
           className={twMerge(
             generalClasses,
-            'gap-2 border-1 border-red text-white bg-red hover:bg-red-700',
+            'border-red bg-red gap-2 border-1 text-white hover:bg-red-700',
           )}
           to={ROUTES.wishlist}
         >
@@ -52,7 +52,7 @@ export const WishListButton = ({ item }: WishListButtonProps) => {
           onClick={handleAddBtn}
           className={twMerge(
             generalClasses,
-            'gap-1 text-red border-1 border-red hover:text-white hover:bg-red',
+            'text-red border-red hover:bg-red gap-1 border-1 hover:text-white',
           )}
         >
           <span>Add to wishlist</span>

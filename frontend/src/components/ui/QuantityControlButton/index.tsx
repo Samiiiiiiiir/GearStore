@@ -59,16 +59,16 @@ export const QuantityControlButton = ({
           <button
             disabled={availableItem.quantity <= 1}
             onClick={handleDecreaseBtn}
-            className="rounded-full bg-[#f4f4f4] text-black hover:bg-black hover:text-white disabled:opacity-50 cursor-pointer disabled:cursor-default w-9 h-9 xl:w-10 xl:h-10 flex justify-center items-center text-xl leading-none duration-200"
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-[#f4f4f4] text-xl leading-none text-black duration-200 hover:bg-black hover:text-white disabled:cursor-default disabled:opacity-50 xl:h-10 xl:w-10"
           >
             <FaMinus size={16} />
           </button>
-          <span className="font-semibold text-lg">
+          <span className="text-lg font-semibold">
             {availableItem.quantity}
           </span>
           <button
             onClick={handleAddBtn}
-            className="rounded-full bg-[#f4f4f4] text-black hover:bg-black hover:text-white cursor-pointer w-9 h-9 xl:w-10 xl:h-10 flex justify-center items-center text-xl leading-none duration-200"
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-[#f4f4f4] text-xl leading-none text-black duration-200 hover:bg-black hover:text-white xl:h-10 xl:w-10"
           >
             <FaPlus size={16} />
           </button>

@@ -27,9 +27,9 @@ export const MainLayout = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 flex flex-col h-full">
+      <main className="flex h-full flex-1 flex-col">
         <Container className="flex-1 py-4 lg:py-8">
           <ScrollRestoration />
           <Outlet />

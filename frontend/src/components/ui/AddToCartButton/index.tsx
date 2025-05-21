@@ -40,7 +40,7 @@ export const AddToCartButton = ({ item }: AddToCartButtonProps) => {
           to={ROUTES.cart}
           className={twMerge(
             generalClasses,
-            'bg-slate-900 text-white hover:bg-slate-700 duration-200 cursor-pointer flex justify-center items-center gap-2',
+            'flex cursor-pointer items-center justify-center gap-2 bg-slate-900 text-white duration-200 hover:bg-slate-700',
           )}
         >
           <FaArrowLeft />
@@ -51,7 +51,7 @@ export const AddToCartButton = ({ item }: AddToCartButtonProps) => {
           type="button"
           className={twMerge(
             generalClasses,
-            'bg-[#e7e7e7] hover:bg-black hover:text-white duration-200 cursor-pointer',
+            'cursor-pointer bg-[#e7e7e7] duration-200 hover:bg-black hover:text-white',
           )}
           onClick={handleAddBtn}
         >

@@ -19,11 +19,11 @@ export const UserInfo = ({ user }: UserInfoProps) => {
   };
 
   return (
-    <div className="text-white bg-gray-900 px-6 py-12 sm:py-18 xl:py-24 shadow-2xl rounded-md sm:rounded-3xl sm:px-16">
+    <div className="rounded-md bg-gray-900 px-6 py-12 text-white shadow-2xl sm:rounded-3xl sm:px-16 sm:py-18 xl:py-24">
       <div className="flex flex-col gap-6">
         <h2 className="text-2xl font-bold tracking-tight sm:text-4xl">
           Welcome back,{' '}
-          <span className="underline underline-offset-4 decoration-1">
+          <span className="underline decoration-1 underline-offset-4">
             {user.firstname} {user.lastname}!
           </span>
         </h2>
@@ -36,7 +36,7 @@ export const UserInfo = ({ user }: UserInfoProps) => {
           similique ex deleniti reprehenderit repellendus exercitationem fugit.
         </p>
         <button
-          className="self-start uppercase cursor-pointer rounded-md bg-white px-8 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
+          className="cursor-pointer self-start rounded-md bg-white px-8 py-2.5 text-sm font-semibold text-gray-900 uppercase hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
           onClick={handleSignOutBtn}
         >
           log out

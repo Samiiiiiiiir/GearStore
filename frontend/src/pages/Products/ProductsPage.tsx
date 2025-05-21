@@ -20,9 +20,9 @@ const Products = () => {
       <Title className="mb-1.5 sm:mb-5 lg:mb-8">Products Collection</Title>
       {(isLoading || isFetching) && <PageLoader />}
       {isSuccess && (
-        <div className="flex flex-col sm:flex-row items-start justify-between gap-5">
+        <div className="flex flex-col items-start justify-between gap-5 sm:flex-row">
           <CategoriesFilter active={parsed?.active} />
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data?.map((item) => (
               <li key={item._id}>
                 <ProductCard item={item} />

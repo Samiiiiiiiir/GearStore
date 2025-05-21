@@ -81,8 +81,8 @@ const Success = () => {
   return (
     <div>
       {loading && <PageLoader />}
-      <div className="flex flex-col items-center justify-center gap-y-5 h-full">
-        <h2 className="text-2xl lg:text-4xl font-bold text-center">
+      <div className="flex h-full flex-col items-center justify-center gap-y-5">
+        <h2 className="text-center text-2xl font-bold lg:text-4xl">
           {loading
             ? 'Order payment is processing...'
             : 'Your payment accepted!'}

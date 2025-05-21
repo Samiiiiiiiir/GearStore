@@ -12,19 +12,19 @@ export const HomeBanner = () => {
         loading="lazy"
         src={homeBanner}
         alt=""
-        className="relative object-cover -z-1 rounded-lg select-none w-full h-full filter-[grayscale(20%)]"
+        className="relative -z-1 h-full w-full rounded-lg object-cover filter-[grayscale(20%)] select-none"
         draggable="false"
       />
-      <div className="absolute z-2 top-[50%] translate-y-[-50%]  px-8 grid gap-5 xl:gap-8">
-        <h2 className="text-3xl md:text-4xl xl:text-7xl font-bold text-white">
+      <div className="absolute top-[50%] z-2 grid translate-y-[-50%] gap-5 px-8 xl:gap-8">
+        <h2 className="text-3xl font-bold text-white md:text-4xl xl:text-7xl">
           Mi Air Purifier
         </h2>
-        <p className="hidden sm:block text-base md:text-lg xl:text-xl font-semibold text-white/90 xl:max-w-[300px]">
+        <p className="hidden text-base font-semibold text-white/90 sm:block md:text-lg xl:max-w-[300px] xl:text-xl">
           The new tech gift you are wishing for right here
         </p>
         <LinkButton
           to={ROUTES.products}
-          className="py-2.5 px-4 xl:py-3.5 xl:px-6 text-sm sm:text-base justify-self-start bg-white text-black hover:bg-black hover:text-white duration-300"
+          className="justify-self-start bg-white px-4 py-2.5 text-sm text-black duration-300 hover:bg-black hover:text-white sm:text-base xl:px-6 xl:py-3.5"
         >
           <FaArrowLeft />
           <span>Start Shopping</span>

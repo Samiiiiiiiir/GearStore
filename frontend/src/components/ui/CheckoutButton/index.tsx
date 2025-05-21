@@ -34,12 +34,12 @@ export const CheckoutButton = ({ products }: CheckoutButtonProps) => {
       <button
         onClick={handleClick}
         disabled={Boolean(!user)}
-        className={`${user ? 'bg-gray-700 hover:bg-gray-800 cursor-pointer duration-300' : 'bg-gray-500 cursor-not-allowed'} w-full text-white text-center rounded-md border border-transparent px-4 py-3`}
+        className={`${user ? 'cursor-pointer bg-gray-700 duration-300 hover:bg-gray-800' : 'cursor-not-allowed bg-gray-500'} w-full rounded-md border border-transparent px-4 py-3 text-center text-white`}
       >
         Checkout
       </button>
       {!user && (
-        <span className="block text-center text-red-500 font-semibold mt-1">
+        <span className="mt-1 block text-center font-semibold text-red-500">
           To place an order you need to sign in!
         </span>
       )}

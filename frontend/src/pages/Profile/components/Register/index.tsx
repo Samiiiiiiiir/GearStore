@@ -63,14 +63,14 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
   };
 
   return (
-    <div className="bg-gray-950 rounded-lg text-white px-6 sm:px-10 lg:px-12">
+    <div className="rounded-lg bg-gray-950 px-6 text-white sm:px-10 lg:px-12">
       {isLoading && <PageLoader />}
       <form
         onSubmit={handleSubmitForm}
-        className="max-w-4xl w-full mx-auto py-10 lg:py-12"
+        className="mx-auto w-full max-w-4xl py-10 lg:py-12"
       >
         <div className="border-b-1 border-white/10 pb-6">
-          <h2 className="uppercase text-xl font-semibold mb-2">
+          <h2 className="mb-2 text-xl font-semibold uppercase">
             registration form
           </h2>
           <p className="text-gray-400">
@@ -78,8 +78,8 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
             registration
           </p>
         </div>
-        <div className="flex flex-col gap-6 lg:gap-8 py-6 lg:py-8">
-          <div className="flex gap-6 lg:gap-8 flex-wrap">
+        <div className="flex flex-col gap-6 py-6 lg:gap-8 lg:py-8">
+          <div className="flex flex-wrap gap-6 lg:gap-8">
             <Label className="grow" text="First name">
               <Input required type="text" name="firstname" />
             </Label>
@@ -95,13 +95,13 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
           </Label>
           <div>
             {error && (
-              <p className="tracking-wide font-semibold text-red-400 text-center">
+              <p className="text-center font-semibold tracking-wide text-red-400">
                 {error}
               </p>
             )}
             <button
               type="submit"
-              className="uppercase mt-4 lg:mt-6 cursor-pointer bg-indigo-700 w-full py-2 text-base font-bold tracking-wide text-gray-300 rounded-md hover:text-white hover:bg-indigo-600 duration-200"
+              className="mt-4 w-full cursor-pointer rounded-md bg-indigo-700 py-2 text-base font-bold tracking-wide text-gray-300 uppercase duration-200 hover:bg-indigo-600 hover:text-white lg:mt-6"
             >
               send
             </button>
@@ -113,7 +113,7 @@ export const Register = ({ setAuthMode }: RegisterProps) => {
             type="button"
             disabled={isLoading}
             onClick={() => setAuthMode(AuthMode.LOGIN)}
-            className="underline cursor-pointer text-white/90 hover:text-white duration-200"
+            className="cursor-pointer text-white/90 underline duration-200 hover:text-white"
           >
             Sign in
           </button>

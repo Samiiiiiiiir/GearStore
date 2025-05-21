@@ -54,15 +54,15 @@ const Cart = () => {
           {(isFetching || isLoading) && <PageLoader />}
           {isSuccess && (
             <>
-              <div className="grid lg:grid-cols-[1fr_38%] gap-8">
+              <div className="grid gap-8 lg:grid-cols-[1fr_38%]">
                 <div>
-                  <div className="flex justify-between items-center">
-                    <Title className="capitalize text-4xl font-bold text-gray-900 mb-4">
+                  <div className="flex items-center justify-between">
+                    <Title className="mb-4 text-4xl font-bold text-gray-900 capitalize">
                       shopping cart
                     </Title>
                     <button
                       onClick={handleClearCartBtn}
-                      className="cursor-pointer duration-200 flex gap-1 items-center bg-red text-white hover:bg-red-700 py-2 px-3 rounded-full"
+                      className="bg-red flex cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-white duration-200 hover:bg-red-700"
                     >
                       Clear <FaRegTrashAlt size={20} />
                     </button>
@@ -75,37 +75,37 @@ const Cart = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-6 self-start text-gray-800">
-                  <h3 className="text-xl font-semibold mb-3">Order summary</h3>
-                  <div className="flex items-center justify-between py-5 border-b-1 border-gray-300">
+                <div className="self-start rounded-lg bg-gray-50 p-6 text-gray-800">
+                  <h3 className="mb-3 text-xl font-semibold">Order summary</h3>
+                  <div className="flex items-center justify-between border-b-1 border-gray-300 py-5">
                     <span>Subtotal</span>
                     <FormattedPrice
                       price={regularPrice}
                       className="font-medium"
                     />
                   </div>
-                  <div className="flex items-center justify-between py-5 border-b-1 border-gray-300 ">
+                  <div className="flex items-center justify-between border-b-1 border-gray-300 py-5">
                     <span>Shipping estimate</span>
                     <FormattedPrice
                       price={SHIPPING_ESTIMATE}
                       className="font-medium"
                     />
                   </div>
-                  <div className="flex items-center justify-between py-5 border-b-1 border-gray-300 ">
+                  <div className="flex items-center justify-between border-b-1 border-gray-300 py-5">
                     <span>Tax estimate</span>
                     <FormattedPrice
                       price={TAX_ESTIMATE}
                       className="font-medium"
                     />
                   </div>
-                  <div className="flex items-center justify-between py-5 border-b-1 border-gray-300 ">
+                  <div className="flex items-center justify-between border-b-1 border-gray-300 py-5">
                     <span className="font-semibold">Total Discount</span>
                     <FormattedPrice
                       price={regularPrice - discountedPrice}
                       className="font-medium"
                     />
                   </div>
-                  <div className="flex items-center justify-between py-5 mb-1 text-lg font-bold">
+                  <div className="mb-1 flex items-center justify-between py-5 text-lg font-bold">
                     <span>Order total</span>
                     <FormattedPrice
                       price={discountedPrice + SHIPPING_ESTIMATE + TAX_ESTIMATE}
@@ -119,12 +119,12 @@ const Cart = () => {
         </>
       ) : (
         <div className="flex flex-col items-center">
-          <div className="flex justify-evenly items-center gap-6 w-full flex-wrap">
+          <div className="flex w-full flex-wrap items-center justify-evenly gap-6">
             <div className="text-center sm:text-start">
-              <Title className="text-3xl lg:text-4xl font-semibold mb-3">
+              <Title className="mb-3 text-3xl font-semibold lg:text-4xl">
                 Cart is empty!
               </Title>
-              <p className="text-gray-500 text-lg sm:text-xl">
+              <p className="text-lg text-gray-500 sm:text-xl">
                 Looks like you haven’t added anything yet
               </p>
             </div>

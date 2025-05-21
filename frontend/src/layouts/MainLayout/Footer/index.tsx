@@ -6,7 +6,7 @@ export const Footer = () => {
 
   return (
     <footer>
-      <Container className="py-6 flex md:justify-between flex-col md:flex-row items-start md:items-center gap-3">
+      <Container className="flex flex-col items-start gap-3 py-6 md:flex-row md:items-center md:justify-between">
         <p>@{year} E-commerce solutions. All rights reserved</p>
         <img
           loading="lazy"

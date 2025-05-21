@@ -14,13 +14,13 @@ export const SectionHeader = ({
   linkPath,
 }: SectionHeaderProps) => {
   return (
-    <div className="flex gap-x-4 gap-y-1 flex-wrap justify-between items-center pb-3 border-b-1 border-b-gray-300">
+    <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b-1 border-b-gray-300 pb-3">
       <Title>{title}</Title>
-      <div className="relative group overflow-hidden">
+      <div className="group relative overflow-hidden">
         <Link to={linkPath} className="font-semibold">
           {linkText}
         </Link>
-        <span className="absolute bottom-0 w-0 left-0 border-b-1 group-hover:w-full duration-200" />
+        <span className="absolute bottom-0 left-0 w-0 border-b-1 duration-200 group-hover:w-full" />
       </div>
     </div>
   );
