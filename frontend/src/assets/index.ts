@@ -3,10 +3,10 @@ import brandFour from './brands/brandFour.webp';
 import brandOne from './brands/brandOne.webp';
 import brandThree from './brands/brandThree.webp';
 import brandTwo from './brands/brandTwo.webp';
-import discountImgOne from './discount/discountImgOne.png';
+import discountImgOne from './discount/discountImgOne.webp';
 import discountImgTwo from './discount/discountImgTwo.webp';
-import emptyCart from './emptyCart.png';
-import homeBanner from './homeBanner.jpg';
+import emptyCart from './emptyCart.webp';
+import homeBanner from './homeBanner.webp';
 import payment from './payment.webp';
 
 export {
