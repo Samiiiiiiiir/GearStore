@@ -84,7 +84,7 @@ const ProductItem = () => {
               />{' '}
               upon purchase!
             </p>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 gap-2">
               <AddToCartButton item={data} />
               <WishListButton item={data} />
             </div>

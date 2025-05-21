@@ -19,7 +19,7 @@ export const AddToCartButton = ({ item }: AddToCartButtonProps) => {
   const availableItem = cart.find((cartItem) => cartItem.id == item._id);
 
   const generalClasses =
-    'py-3 text-center rounded-full font-medium shadow-md w-full';
+    'py-3 text-center rounded-full font-medium shadow-xs w-full';
 
   const handleAddBtn = () => {
     dispatch(addToCart(item._id));

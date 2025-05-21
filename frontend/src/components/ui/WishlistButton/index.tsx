@@ -25,7 +25,7 @@ export const WishListButton = ({ item }: WishListButtonProps) => {
   const handleAddBtn = () => {
     dispatch(toggleWishlistItem(item));
 
-    toast.success(`${item.name.slice(0, 12).trim()}...  added to wishlist!`, {
+    toast.success(`${item.name.slice(0, 12).trim()}... added to wishlist!`, {
       style: {
         borderRadius: '10px',
         background: '#333',
