@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router';
 import { twMerge } from 'tailwind-merge';
 
+import { useToggleBodyClass } from '@hooks/useToggleBodyClass';
 import { useGetCategoriesQuery } from '@services/api/publicApiSlice';
 
 interface CategoriesFilterProps {
@@ -11,19 +12,9 @@ interface CategoriesFilterProps {
 export const CategoriesFilter = ({ active }: CategoriesFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useToggleBodyClass('!overflow-y-hidden', isOpen);
+
   const { data, isSuccess } = useGetCategoriesQuery();
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [isOpen]);
 
   return (
     <div className="inline-flex flex-col gap-1 sm:p-2">

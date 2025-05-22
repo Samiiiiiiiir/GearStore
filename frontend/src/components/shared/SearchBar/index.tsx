@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
 
+import { useToggleBodyClass } from '@hooks/useToggleBodyClass';
 import { useGetProductsQuery } from '@services/api/publicApiSlice';
 import { ProductItem } from '@types';
 
@@ -13,6 +14,10 @@ export const SearchBar = () => {
 
   const { data, isSuccess } = useGetProductsQuery();
 
+  useToggleBodyClass('!overflow-y-hidden', searchValue.length > 0, [
+    searchValue,
+  ]);
+
   useEffect(() => {
     if (isSuccess && data) {
       const filtered = data.items.filter((item) =>
@@ -22,14 +27,6 @@ export const SearchBar = () => {
       setFilteredData(filtered);
     }
   }, [searchValue, isSuccess]);
-
-  useEffect(() => {
-    document.body.style.overflow = searchValue.length === 0 ? '' : 'hidden';
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [searchValue]);
 
   return (
     <>
