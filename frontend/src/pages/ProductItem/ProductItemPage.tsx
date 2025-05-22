@@ -38,7 +38,7 @@ const ProductItem = () => {
                   alt=""
                   loading="lazy"
                   onClick={() => setActiveImage(i)}
-                  className={`aspect-square w-16 cursor-pointer rounded-sm border-1 border-gray-500 object-scale-down p-1 duration-300 hover:opacity-100 xl:w-24 ${
+                  className={`aspect-square w-14 cursor-pointer rounded-sm border-1 border-gray-500 object-scale-down p-1 duration-300 hover:opacity-100 xl:w-24 ${
                     activeImage == i ? 'opacity-100' : 'opacity-80'
                   }`}
                 />
@@ -54,7 +54,7 @@ const ProductItem = () => {
             </div>
           </div>
           <div className="flex flex-col gap-5 md:w-[50%]">
-            <Title className="text-lg md:text-xl lg:text-2xl xl:text-4xl">
+            <Title className="text-lg md:text-xl lg:text-2xl xl:text-3xl">
               {data.name}
             </Title>
             <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
@@ -84,7 +84,7 @@ const ProductItem = () => {
               />{' '}
               upon purchase!
             </p>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="xs:grid-cols-2 grid gap-2">
               <AddToCartButton item={data} />
               <WishListButton item={data} />
             </div>

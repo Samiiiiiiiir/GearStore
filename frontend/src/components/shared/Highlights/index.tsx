@@ -1,6 +1,6 @@
 import ContentLoader from 'react-content-loader';
+import { Link } from 'react-router';
 
-import { LinkButton } from '@components/ui/LinkButton';
 import { Section } from '@components/ui/Section';
 import { useGetHighlightsQuery } from '@services/api/publicApiSlice';
 
@@ -10,13 +10,13 @@ export const Highlights = () => {
   return (
     <Section>
       <h2 className="sr-only">Highlights</h2>
-      <ul className="grid grid-cols-1 justify-between gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="xs:flex-row flex flex-col justify-between gap-10">
         {(isFetching || isLoading) &&
-          new Array(3).fill(null).map((_, i) => (
+          new Array(2).fill(null).map((_, i) => (
             <li key={i}>
               <ContentLoader
                 speed={2}
-                className="h-60 w-full overflow-hidden rounded-xl"
+                className="h-126 w-full overflow-hidden rounded-md"
                 backgroundColor="#f3f3f3"
                 foregroundColor="#ecebeb"
               >
@@ -28,30 +28,16 @@ export const Highlights = () => {
           data.map((item) => (
             <li
               key={item._id}
-              className="group relative h-46 cursor-pointer overflow-hidden rounded-lg shadow-md lg:h-60"
+              className="relative aspect-square h-60 overflow-hidden rounded-md sm:h-80 lg:h-126"
             >
-              <img
-                loading="lazy"
-                src={item.image}
-                alt={item.name}
-                className="absolute -z-1 h-full w-full object-cover duration-300 group-hover:scale-110"
-              />
-              <div className="grid h-full gap-1 p-4 pt-6 lg:pt-12">
-                <div>
-                  <h3 className="mb-3 max-w-[60%] text-xl font-bold lg:text-2xl">
-                    {item.name}
-                  </h3>
-                  <span className="text-lg font-semibold lg:text-xl">
-                    {item.title}
-                  </span>
-                </div>
-                <LinkButton
-                  to={item._base}
-                  className="mt-auto justify-self-start rounded-lg bg-black/65 px-3 py-1"
-                >
-                  {item.buttonTitle}
-                </LinkButton>
-              </div>
+              <Link to={item._base}>
+                <img
+                  loading="lazy"
+                  src={item.image}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </Link>
             </li>
           ))}
       </ul>

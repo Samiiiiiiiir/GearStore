@@ -46,7 +46,7 @@ export const CategoriesFilter = ({ active }: CategoriesFilterProps) => {
 
       <div
         className={twMerge(
-          'flex flex-col justify-between bg-white max-sm:fixed max-sm:top-0 max-sm:z-50 max-sm:h-screen max-sm:w-[max(66%,250px)] max-sm:gap-5 max-sm:py-7 max-sm:text-center',
+          'flex flex-col justify-between bg-white max-sm:fixed max-sm:top-0 max-sm:z-50 max-sm:h-[100svh] max-sm:w-[max(66%,250px)] max-sm:gap-5 max-sm:py-7 max-sm:text-center',
           isOpen ? 'max-sm:left-0' : 'max-sm:-left-full',
         )}
       >

@@ -2,10 +2,9 @@ import { useRef, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import { useGetProductsQuery } from '@services/api/publicApiSlice';
+import { ITEMS_PER_PAGE } from '@utils';
 
 import { ProductCard } from '../ProductCard';
-
-const itemsPerPage = 12;
 
 export const Pagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,7 +12,7 @@ export const Pagination = () => {
 
   const { data: response, isSuccess } = useGetProductsQuery({
     page: currentPage,
-    limit: itemsPerPage,
+    limit: ITEMS_PER_PAGE,
   });
 
   const handlePageClick = ({ selected }: { selected: number }) => {
@@ -45,7 +44,7 @@ export const Pagination = () => {
             previousLabel={null}
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
-            pageCount={Math.ceil(response.total / itemsPerPage)}
+            pageCount={Math.ceil(response.total / ITEMS_PER_PAGE)}
             renderOnZeroPageCount={null}
             containerClassName="flex pt-8 gap-2 text-white font-semibold"
             pageClassName="w-9 h-9 border-1 border-black hover:border-gray-500 rounded-md bg-dark hover:bg-white hover:text-black duration-200 cursor-pointer"

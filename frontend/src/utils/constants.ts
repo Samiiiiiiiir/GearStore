@@ -3,3 +3,5 @@ export const STRIPE_PUBLISH_KEY = import.meta.env.VITE_STRIPE_PUBLISH_KEY;
 
 export const SHIPPING_ESTIMATE = 25;
 export const TAX_ESTIMATE = 15;
+
+export const ITEMS_PER_PAGE = 10;

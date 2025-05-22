@@ -20,7 +20,7 @@ export const WishListButton = ({ item }: WishListButtonProps) => {
   const availableItem = list.find((i) => i._id == item._id);
 
   const generalClasses =
-    'font-medium shadow-xs shadow-red-200 w-full h-full justify-center cursor-pointer self-start inline-flex items-center py-1.5 px-3 rounded-full duration-200';
+    'font-medium shadow-xs shadow-red-200 w-full min-h-12 h-full justify-center cursor-pointer self-start inline-flex items-center py-1.5 px-3 rounded-full duration-200';
 
   const handleAddBtn = () => {
     dispatch(toggleWishlistItem(item));
@@ -55,8 +55,8 @@ export const WishListButton = ({ item }: WishListButtonProps) => {
             'text-red border-red hover:bg-red gap-1 border-1 hover:text-white',
           )}
         >
-          <span>Add to wishlist</span>
           <IoHeartOutline className="shrink-0" size={24} />
+          <span>Add to wishlist</span>
         </button>
       )}
     </>
