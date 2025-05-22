@@ -121,9 +121,7 @@ const Cart = () => {
         <div className="flex flex-col items-center">
           <div className="flex w-full flex-wrap items-center justify-evenly gap-6">
             <div className="text-center sm:text-start">
-              <Title className="mb-3 text-3xl font-semibold lg:text-4xl">
-                Cart is empty!
-              </Title>
+              <Title className="mb-2">Cart is empty!</Title>
               <p className="text-lg text-gray-500 sm:text-xl">
                 Looks like you haven’t added anything yet
               </p>

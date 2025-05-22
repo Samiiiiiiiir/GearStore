@@ -45,7 +45,7 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
   };
 
   return (
-    <article className="flex h-full flex-col justify-between overflow-hidden rounded-lg border border-gray-200 p-2 duration-200 hover:border-black/40">
+    <article className="flex h-full min-w-48 flex-col justify-between overflow-hidden rounded-lg border border-gray-200 p-2 duration-200 hover:border-black/40">
       <div className="group relative h-60 w-full overflow-hidden">
         <span className="bg-dark absolute top-1 left-1 z-2 rounded-md px-1.5 py-1 text-center text-xs text-white uppercase">
           Save {percentage}%
@@ -55,13 +55,13 @@ export const ProductCard = ({ item, onClick }: ProductCardProps) => {
             loading="lazy"
             src={item.images[0]}
             alt={item.name}
-            className="h-full w-full object-scale-down duration-300 select-none group-hover:scale-110"
+            className="h-full w-full object-scale-down duration-300 select-none group-hover:scale-105"
           />
         </Link>
         <button
           onClick={handleAddToWishlistBtn}
           aria-label={isAdded ? 'Remove from wishlist' : 'Add to wishlist'}
-          className="group/inner absolute top-1 right-[-100%] z-3 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-black duration-300 group-hover:right-1 hover:scale-110"
+          className="group/inner absolute top-1 right-[-100%] z-3 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-black/80 duration-300 group-hover:right-1 hover:scale-105 hover:bg-black"
         >
           {isAdded ? (
             <IoHeartSharp size={24} color="red" />

@@ -30,7 +30,7 @@ export const Highlights = () => {
               key={item._id}
               className="relative aspect-square h-60 overflow-hidden rounded-md sm:h-80 lg:h-126"
             >
-              <Link to={item._base}>
+              <Link to={item._base} aria-label="products">
                 <img
                   loading="lazy"
                   src={item.image}

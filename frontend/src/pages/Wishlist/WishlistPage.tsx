@@ -24,7 +24,7 @@ const Wishlist = () => {
           </ul>
         </>
       ) : (
-        <div className="mt-14 flex flex-col items-center gap-4 text-center">
+        <div className="flex flex-col items-center gap-4 text-center">
           <Title>Nothing added to Wishlist</Title>
           <p className="text-lg text-gray-600">
             Looks like you haven’t saved any items yet. Browse our catalog and

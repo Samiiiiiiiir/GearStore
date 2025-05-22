@@ -79,20 +79,16 @@ const Orders = () => {
                 </>
               ) : (
                 <div className="flex justify-center">
-                  <div className="flex w-2xl flex-col gap-5">
-                    <Title className="text-center">
-                      You don't have any orders yet
-                    </Title>
-                    <div className="flex justify-between gap-2">
-                      <p className="text-lg text-gray-600">
-                        Ready to find something you love? Explore our latest
-                        products and get started!
-                      </p>
-                      <LinkButton to={ROUTES.products} className="self-center">
-                        <FaArrowLeft />
-                        <span>Start Shopping</span>
-                      </LinkButton>
-                    </div>
+                  <div className="flex w-2xl flex-col gap-4 text-center">
+                    <Title>You don't have any orders yet</Title>
+                    <p className="text-lg text-gray-600">
+                      Ready to find something you love? Explore our latest
+                      products and get started!
+                    </p>
+                    <LinkButton to={ROUTES.products} className="self-center">
+                      <FaArrowLeft />
+                      <span>Start Shopping</span>
+                    </LinkButton>
                   </div>
                 </div>
               )}

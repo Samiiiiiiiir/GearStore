@@ -14,24 +14,32 @@ export const SearchBar = () => {
   const { data, isSuccess } = useGetProductsQuery();
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isSuccess && data) {
       const filtered = data.items.filter((item) =>
         item.name.toLowerCase().includes(searchValue.trim().toLowerCase()),
       );
 
       setFilteredData(filtered);
     }
+  }, [searchValue, isSuccess]);
+
+  useEffect(() => {
+    document.body.style.overflow = searchValue.length === 0 ? '' : 'hidden';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [searchValue]);
 
   return (
     <>
-      <div className="relative hidden w-full max-w-3xl items-center sm:inline-flex">
+      <div className="relative inline-flex w-full max-w-3xl items-center">
         <input
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           type="text"
           placeholder="Search products..."
-          className="focus:ring-dark w-full rounded-full py-[10px] pr-12 pl-5 shadow-sm ring-1 ring-gray-400 ring-inset placeholder:text-base placeholder:tracking-wide"
+          className="focus:ring-dark xs:placeholder:text-base w-full rounded-full py-[10px] pr-12 pl-5 shadow-sm ring-1 ring-gray-400 ring-inset placeholder:text-sm placeholder:tracking-wide"
         />
         {searchValue ? (
           <IoClose
@@ -45,9 +53,9 @@ export const SearchBar = () => {
       </div>
 
       {searchValue && (
-        <div className="no-scrollbar absolute top-20 left-0 z-49 hidden h-[60vh] w-full overflow-y-scroll bg-white p-3 shadow-lg shadow-gray-400 sm:block">
+        <div className="no-scrollbar absolute top-20 left-0 z-49 h-[60vh] w-full overflow-y-scroll bg-white p-3 shadow-lg shadow-gray-400 sm:block">
           {filteredData.length > 0 ? (
-            <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-5">
+            <ul className="xs:grid-cols-2 grid gap-4 lg:grid-cols-3 xl:grid-cols-5">
               {filteredData.map((item) => (
                 <li key={item._id}>
                   <ProductCard item={item} onClick={() => setSearchValue('')} />

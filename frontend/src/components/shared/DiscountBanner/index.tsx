@@ -17,12 +17,12 @@ export const DiscountBanner = () => {
         linkText="View All"
         title="Popular Search"
       />
-      <ul className="flex flex-wrap gap-4">
+      <ul className="xs:gap-4 flex flex-wrap gap-2">
         {searchItems.map(({ link, title }) => (
           <li key={title}>
             <LinkButton
               to={`${ROUTES.products}?active=${link}`}
-              className="border-1 border-gray-300 bg-transparent text-black hover:text-white"
+              className="xs:text-base border-1 border-gray-300 bg-transparent text-sm text-black hover:text-white"
             >
               {title}
             </LinkButton>
@@ -36,7 +36,7 @@ export const DiscountBanner = () => {
           alt=""
           className="absolute top-0 -z-1 hidden md:block"
         />
-        <div className="mb-2 flex items-center justify-center gap-1 pt-8 lg:gap-3">
+        <div className="xs:flex-row mb-2 flex flex-col items-center justify-center gap-x-1 gap-y-3 pt-8 lg:gap-3">
           <Title>Sony Headphone</Title>
           <Link
             to={ROUTES.products}
