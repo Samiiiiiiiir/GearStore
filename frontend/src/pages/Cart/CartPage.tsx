@@ -62,9 +62,9 @@ const Cart = () => {
                     </Title>
                     <button
                       onClick={handleClearCartBtn}
-                      className="bg-red flex cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-white duration-200 hover:bg-red-700"
+                      className="bg-red flex aspect-square w-10 cursor-pointer items-center justify-center gap-1 rounded-full text-white duration-200 hover:bg-red-700"
                     >
-                      Clear <FaRegTrashAlt size={20} />
+                      <FaRegTrashAlt size={18} />
                     </button>
                   </div>
                   <ul>

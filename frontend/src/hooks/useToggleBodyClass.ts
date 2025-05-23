@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { DependencyList, useEffect } from 'react';
 
 export const useToggleBodyClass = (
   classname: string,
   condition: boolean,
-  deps: unknown[] = [],
+  deps: DependencyList = [],
 ) => {
   useEffect(() => {
     if (condition) {

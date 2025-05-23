@@ -101,7 +101,7 @@ const Orders = () => {
             To view your orders, please{' '}
             <Link
               to={ROUTES.profile}
-              className="text-blue/80 hover:text-blue underline transition-colors"
+              className="text-blue/80 hover:text-blue whitespace-nowrap underline transition-colors"
             >
               sign in
             </Link>
