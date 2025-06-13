@@ -1,13 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {
-  CartItem,
-  CategoryItem,
-  HighlightItem,
-  ProductItem,
-  ProductsResponse,
-} from '@types';
+import { CartItem, CategoryItem, ProductItem, ProductsResponse } from '@types';
 import { BASE_URL } from '@utils';
 
 export const publicApiSlice = createApi({
@@ -18,9 +12,6 @@ export const publicApiSlice = createApi({
   endpoints: (build) => ({
     getCategories: build.query<CategoryItem[], void>({
       query: () => ({ url: '/categories' }),
-    }),
-    getHighlights: build.query<HighlightItem[], void>({
-      query: () => ({ url: '/highlights' }),
     }),
     getProducts: build.query<
       ProductsResponse,
@@ -72,7 +63,6 @@ export const publicApiSlice = createApi({
 
 export const {
   useGetCategoriesQuery,
-  useGetHighlightsQuery,
   useGetProductsQuery,
   useGetProductsByCategoryQuery,
   useGetOneProductQuery,
