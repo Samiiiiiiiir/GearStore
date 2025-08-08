@@ -7,7 +7,6 @@ import brandTwo from './brands/brandTwo.webp';
 import discountImgOne from './discount/discountImgOne.webp';
 import discountImgTwo from './discount/discountImgTwo.webp';
 import emptyCart from './emptyCart.webp';
-import homeBanner from './homeBanner.webp';
 import payment from './payment.webp';
 
 export {
@@ -19,7 +18,6 @@ export {
   brandThree,
   brandFour,
   brandFive,
-  homeBanner,
   emptyCart,
   airpodsMax,
 };
