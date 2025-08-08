@@ -1,3 +1,4 @@
+import airpodsMax from './airpodsmax.webp';
 import brandFive from './brands/brandFive.webp';
 import brandFour from './brands/brandFour.webp';
 import brandOne from './brands/brandOne.webp';
@@ -20,4 +21,5 @@ export {
   brandFive,
   homeBanner,
   emptyCart,
+  airpodsMax,
 };
