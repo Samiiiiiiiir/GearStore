@@ -14,7 +14,9 @@ export const CategoriesFilter = ({ active }: CategoriesFilterProps) => {
 
   useToggleBodyClass('!overflow-y-hidden', isOpen);
 
-  const { data, isSuccess } = useGetCategoriesQuery();
+  const { data, isSuccess, isError } = useGetCategoriesQuery();
+
+  console.log(data, isSuccess, isError);
 
   return (
     <div className="inline-flex flex-col gap-1 sm:p-2">
@@ -58,6 +60,9 @@ export const CategoriesFilter = ({ active }: CategoriesFilterProps) => {
                 <span className="whitespace-nowrap">{item.name}</span>
               </Link>
             ))}
+          {isError && (
+            <div className="text-red font-medium">Something went wrong</div>
+          )}
         </div>
         <button
           onClick={() => setIsOpen((prev) => !prev)}

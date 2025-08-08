@@ -12,7 +12,7 @@ export const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
   const [filteredData, setFilteredData] = useState<ProductItem[]>([]);
 
-  const { data, isSuccess } = useGetProductsQuery();
+  const { data, isSuccess, isError } = useGetProductsQuery();
 
   useToggleBodyClass('!overflow-y-hidden', searchValue.length > 0, [
     searchValue,
@@ -61,10 +61,14 @@ export const SearchBar = () => {
             </ul>
           ) : (
             <div className="flex h-full items-center justify-center px-4 py-8 text-center text-xl">
-              <p>
-                Nothing matches with your search keywords{' '}
-                <span className="font-semibold text-gray-500 underline decoration-[1px] underline-offset-2">{`(${searchValue})`}</span>
-              </p>
+              {isError ? (
+                <div className="text-red font-medium">Something went wrong</div>
+              ) : (
+                <p>
+                  Nothing matches with your search keywords{' '}
+                  <span className="font-semibold text-gray-500 underline decoration-[1px] underline-offset-2">{`(${searchValue})`}</span>
+                </p>
+              )}
             </div>
           )}
         </div>

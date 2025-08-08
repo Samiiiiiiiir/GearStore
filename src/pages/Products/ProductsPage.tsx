@@ -12,13 +12,18 @@ const Products = () => {
   const parsed = queryString.parse(search);
   const active = parsed?.active as string | undefined;
 
-  const { data, isSuccess, isLoading, isFetching } =
+  const { data, isSuccess, isLoading, isFetching, isError } =
     useGetProductsByCategoryQuery(active);
+
+  console.log('error', isError);
 
   return (
     <>
       <Title className="mb-1.5 sm:mb-5 lg:mb-8">Products Collection</Title>
       {(isLoading || isFetching) && <PageLoader />}
+      {isError && (
+        <div className="text-red font-medium">Something went wrong</div>
+      )}
       {isSuccess && (
         <div className="flex flex-col items-start justify-between gap-5 sm:flex-row">
           <CategoriesFilter active={parsed?.active} />

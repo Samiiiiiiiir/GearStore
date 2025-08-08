@@ -8,7 +8,8 @@ import { useGetCategoriesQuery } from '@services/api/publicApiSlice';
 import { SectionHeader } from './../SectionHeader';
 
 export const PopularCategories = () => {
-  const { data, isSuccess, isFetching, isLoading } = useGetCategoriesQuery();
+  const { data, isSuccess, isFetching, isLoading, isError } =
+    useGetCategoriesQuery();
 
   return (
     <Section>
@@ -31,6 +32,9 @@ export const PopularCategories = () => {
               </ContentLoader>
             </li>
           ))}
+        {isError && (
+          <div className="text-red font-medium">Something went wrong</div>
+        )}
         {isSuccess &&
           data.map((item) => (
             <li

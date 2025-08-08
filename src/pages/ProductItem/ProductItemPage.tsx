@@ -16,7 +16,8 @@ const ProductItem = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { data, isLoading, isFetching, isSuccess } = useGetOneProductQuery(id!);
+  const { data, isLoading, isFetching, isSuccess, isError } =
+    useGetOneProductQuery(id!);
 
   useEffect(() => {
     if (isSuccess && !data) {
@@ -27,6 +28,9 @@ const ProductItem = () => {
   return (
     <>
       {(isLoading || isFetching) && <PageLoader />}
+      {isError && (
+        <div className="text-red font-medium">Something went wrong</div>
+      )}
       {isSuccess && data && (
         <div className="flex flex-col gap-5 md:flex-row">
           <div className="flex flex-col-reverse justify-center gap-10 md:w-[50%] md:flex-row md:justify-start md:gap-5">

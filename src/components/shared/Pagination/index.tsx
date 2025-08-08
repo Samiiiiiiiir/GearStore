@@ -10,7 +10,11 @@ export const Pagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const { data: response, isSuccess } = useGetProductsQuery({
+  const {
+    data: response,
+    isSuccess,
+    isError,
+  } = useGetProductsQuery({
     page: currentPage,
     limit: ITEMS_PER_PAGE,
   });
@@ -29,6 +33,9 @@ export const Pagination = () => {
 
   return (
     <div ref={wrapperRef}>
+      {isError && (
+        <div className="text-red font-medium">Something went wrong</div>
+      )}
       {isSuccess && (
         <>
           <ul className="grid gap-6 pt-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">

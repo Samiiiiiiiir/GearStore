@@ -23,7 +23,7 @@ const Cart = () => {
   const [regularPrice, setRegularPrice] = useState(0);
   const [discountedPrice, setDiscountedPrice] = useState(0);
 
-  const { isFetching, isLoading, isSuccess, data } =
+  const { isFetching, isLoading, isSuccess, data, isError } =
     useGetCartProductsQuery(cart);
 
   useEffect(() => {
@@ -52,6 +52,9 @@ const Cart = () => {
       {cart.length > 0 ? (
         <>
           {(isFetching || isLoading) && <PageLoader />}
+          {isError && (
+            <div className="text-red font-medium">Something went wrong</div>
+          )}
           {isSuccess && (
             <>
               <div className="grid gap-8 lg:grid-cols-[1fr_38%]">
